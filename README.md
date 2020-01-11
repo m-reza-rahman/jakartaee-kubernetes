@@ -1,2 +1,2 @@
-# jakartaee-kubernetes
-Effective Kubernetes for Jakarta EE Developers
+# Effective Kubernetes for Jakarta EE Developers
+Coming soon.
