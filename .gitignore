@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# Compiled package file
+target/
+
 # Log file
 *.log
 
@@ -21,3 +24,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#IntelliJ Files
+.idea
+.DS_Store
+.war
+javaee/javaee-cafe-demo/nb-configuration.xml
+uber-jar/javaee-cafe/.classpath
+uber-jar/javaee-cafe/.settings/
+kubernetes-devops/javaee-cafe/.classpath
+kubernetes-devops/javaee-cafe/.settings/

@@ -1,0 +1,54 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Maven@1
+  inputs:
+    mavenPomFile: 'kubernetes-devops/javaee-cafe/pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker-hub-rezarahman'
+    repository: 'rezarahman/javaee-cafe'
+    command: 'buildAndPush'
+    Dockerfile: 'kubernetes-devops/javaee-cafe/Dockerfile'
+    tags: 'v1'
+- task: Kubernetes@1
+  continueOnError: true
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    command: 'delete'
+    useConfigurationFile: true
+    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'    
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    command: 'create'
+    useConfigurationFile: true
+    configuration: 'kubernetes-devops/javaee-cafe/postgres.yml'
+- task: Kubernetes@1
+  continueOnError: true
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    command: 'delete'
+    useConfigurationFile: true
+    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'javaee-cafe-cluster'
+    command: 'create'
+    useConfigurationFile: true
+    configuration: 'kubernetes-devops/javaee-cafe/javaee-cafe.yml'
