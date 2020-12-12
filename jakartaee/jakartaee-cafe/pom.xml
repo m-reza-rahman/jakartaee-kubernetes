@@ -3,23 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>javaee-cafe</artifactId>
-	<groupId>javaee-cafe</groupId>
+	<artifactId>jakartaee-cafe</artifactId>
+	<groupId>jakartaee-cafe</groupId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>
-	<description>This is the basic Java EE application used throughout the Docker and Kubernetes demos.
-        It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSON-B, JSF, Bean Validation).
+	<description>This is the basic Jakarta EE application used throughout the Azure demos.
+        It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, Jakarta Enterprise Beans, 
+        Jakarta Context and Dependency Injection, Jakarta Persistence, Jakarta Faces, Jakarta Bean Validation). 
     </description>
 	<properties>
-		<javaee.api.version>8.0</javaee.api.version>
+		<jakartaee.api.version>8.0.0</jakartaee.api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${javaee.api.version}</version>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakartaee.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

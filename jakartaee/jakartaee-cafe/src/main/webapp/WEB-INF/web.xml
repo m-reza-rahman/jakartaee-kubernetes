@@ -33,4 +33,9 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <data-source>
+        <name>java:global/jdbc/JavaEECafe</name>
+        <class-name>org.postgresql.ds.PGPoolingDataSource</class-name>
+        <url>jdbc:postgresql://localhost:5432/postgres?user=postgres</url>
+    </data-source>
 </web-app>
