@@ -8,7 +8,7 @@
 	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>
-	<description>This is the basic Jakarta EE application used throughout the Azure demos.
+	<description>This is the basic Jakarta EE application used throughout the Kubernetes demos.
         It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, Jakarta Enterprise Beans, 
         Jakarta Context and Dependency Injection, Jakarta Persistence, Jakarta Faces, Jakarta Bean Validation). 
     </description>
