@@ -22,7 +22,7 @@ This demo will show how to make application server administration, clustering, a
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
 ## Deploy the Java EE Application and Postgres on Kubernetes
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes-clustering/ directory.
+* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the clustering/ directory.
 * Deploy postgres with a persistent volume claim with the following command:
    ```
    kubectl create -f postgres.yml
