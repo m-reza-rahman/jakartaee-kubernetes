@@ -28,7 +28,7 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 * Go to [Azure DevOps home](https://dev.azure.com).
 * Select your project. Click on project settings -> Pipelines -> Service connections -> Create service connection -> GitHub. Select Azure Pipelines as the OAuth configuration. Click authorize. Provide a connection name. Click save.
 * Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click verify and save. 
-* Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Specify the connection name to be jakartaee-cafe-cluster. Select the cluster to be jakartaee-cafe-cluster-`<your suffix>`. Click OK.
+* Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Select the namespace to be default. Select the cluster to be jakartaee-cafe-cluster-`<your suffix>`. Specify the connection name to be jakartaee-cafe-cluster. Click save.
 
 ## Create and Run the Pipeline
 * Select pipelines. Click new -> new build pipeline. Select GitHub as source control. Select jakartaee-kubernetes from your own repository. Select existing Azure Pipelines YAML file. Select /devops/jakartaee-cafe/azure-pipelines.yml as the path. 
