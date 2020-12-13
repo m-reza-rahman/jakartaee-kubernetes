@@ -36,7 +36,11 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 9080
+    - name: https
+      port: 443
+      targetPort: 9443  
   selector:
     app: jakartaee-cafe
