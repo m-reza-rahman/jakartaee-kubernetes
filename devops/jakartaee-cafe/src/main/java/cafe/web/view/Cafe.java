@@ -70,7 +70,7 @@ public class Cafe implements Serializable {
 			baseUri = FacesContext.getCurrentInstance().getExternalContext().getRequestScheme() + "://"
 					+ inetAddress.getHostName() + ":"
 					+ FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort()
-					+ "/javaee-cafe/rest/coffees";
+					+ "/jakartaee-cafe/rest/coffees";
 			this.client = ClientBuilder.newClient();
 			this.getAllCoffees();
 		} catch (IllegalArgumentException | NullPointerException | WebApplicationException | UnknownHostException ex) {

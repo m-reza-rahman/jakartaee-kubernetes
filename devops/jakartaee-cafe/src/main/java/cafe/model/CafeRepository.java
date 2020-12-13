@@ -20,7 +20,7 @@ public class CafeRepository {
 	private EntityManager entityManager;
 
 	public List<Coffee> getAllCoffees() {
-		logger.log(Level.INFO, "Finding all coffees.");
+		logger.log(Level.INFO, "Finding all coffees. ");
 
 		return this.entityManager.createNamedQuery("findAllCoffees", Coffee.class).getResultList();
 	}
