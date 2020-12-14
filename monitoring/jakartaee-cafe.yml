@@ -18,12 +18,12 @@ spec:
       - name: jakartaee-cafe
         env:
           - name: POSTGRES_SERVER
-            value: "jakartaee-cafe-db-reza.postgres.database.azure.com"        
+            value: "jakartaee-cafe-db-<your suffix>.postgres.database.azure.com"        
           - name: POSTGRES_USER
-            value: "postgres@jakartaee-cafe-db-reza"
+            value: "postgres@jakartaee-cafe-db-<your suffix>"
           - name: POSTGRES_PASSWORD
             value: "Secret123!"
-        image: rezarahman/jakartaee-cafe:v4
+        image: <your Docker Hub account>/jakartaee-cafe:v2
 ---
 apiVersion: v1
 kind: Service
