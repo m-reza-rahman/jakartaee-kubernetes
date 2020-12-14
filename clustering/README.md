@@ -47,7 +47,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    docker build -t <your Docker Hub account>/jakartaee-cafe:v1 .
    docker push <your Docker Hub account>/jakartaee-cafe:v1
    ```
-* Replace the `<your Docker Hub account>` value with your account name in `jakartaee-cafe.yml` file, then deploy the application:
+* Replace the `<your Docker Hub account>` value with your account name and `<your suffix>` value with what you used previously in the `jakartaee-cafe.yml` file, then deploy the application:
    ```
    kubectl create -f jakartaee-cafe.yml
    ```
