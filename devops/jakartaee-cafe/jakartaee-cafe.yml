@@ -17,17 +17,13 @@ spec:
       containers:
       - name: jakartaee-cafe
         env:
+          - name: POSTGRES_SERVER
+            value: "jakartaee-cafe-db-reza.postgres.database.azure.com"        
           - name: POSTGRES_USER
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-config
-                key: postgres_user
+            value: "postgres@jakartaee-cafe-db-reza"
           - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-config
-                key: postgres_password
-        image: rezarahman/jakartaee-cafe:v1
+            value: "Secret123!"
+        image: rezarahman/jakartaee-cafe:v2
 ---
 apiVersion: v1
 kind: Service
