@@ -8,4 +8,4 @@ Factors demostrated include:
 * How to make application server administration, clustering, auto-scaling, auto-discovery and load-balancing work with Kubernetes deployments. The [clustering](/clustering) folder shows how this is done.
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
-The demos use Jakarta EE 8, WebSphere Liberty, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
+The demosuse Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
