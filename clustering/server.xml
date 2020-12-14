@@ -50,7 +50,7 @@
 		transactional="true" type="javax.sql.ConnectionPoolDataSource">
 		<properties databaseName="postgres"
 			password="${env.POSTGRES_PASSWORD}" portNumber="5432"
-			serverName="postgres" user="${env.POSTGRES_USER}" />
+			serverName="${env.POSTGRES_SERVER}" user="${env.POSTGRES_USER}" />
 	</dataSource>
 
 	<jdbcDriver id="postgresql-driver"
