@@ -32,12 +32,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory. 
 
 ## Deploy the Jakarta EE Application on Kubernetes
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the clustering/ directory.
-* Deploy postgres with a persistent volume claim with the following command:
-   ```
-   kubectl create -f postgres.yml
-   ```
-
 * Open Eclipse.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to clustering/.
