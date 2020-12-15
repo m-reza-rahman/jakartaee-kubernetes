@@ -75,8 +75,3 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl delete -f jakartaee-cafe.yml
    ```
-
-* Delete Postgres:
-   ```
-   kubectl delete -f postgres.yml
-   ```
