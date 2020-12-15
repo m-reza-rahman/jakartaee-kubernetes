@@ -1,6 +1,6 @@
-# Jakarta EE Application Server Clustering with Kubernetes
+# Jakarta EE Application Server Monitoring with Kubernetes
 
-This demo will show how to make application server administration, clustering, auto-scaling, auto-discovery and load-balancing work with Kubernetes deployments.
+This demo will show how to make Kubernetes liveness/readyness probes and monitoring via Prometheus work with MicroProfile Health and Metrics.
 
 ## Prerequisites
 
