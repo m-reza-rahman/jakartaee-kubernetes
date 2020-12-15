@@ -34,18 +34,18 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 ## Deploy the Jakarta EE Application on Kubernetes
 * Open Eclipse.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
-* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to clustering/.
+* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to monitoring/.
 * You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.4.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`. Note that we also use the WebSphere installation utility to install the admin center that we will use to administer the application.
 * You should also note the `server.xml`. We have added an admin role to access the adminstrative tool with.
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the clustering/ directory.
+* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
 * Log in to Docker Hub using the docker login command:
    ```
    docker login
    ```
 * Build a Docker image and push the image to Docker Hub:
    ```
-   docker build -t <your Docker Hub account>/jakartaee-cafe:v1 .
-   docker push <your Docker Hub account>/jakartaee-cafe:v1
+   docker build -t <your Docker Hub account>/jakartaee-cafe:v2 .
+   docker push <your Docker Hub account>/jakartaee-cafe:v2
    ```
 * Replace the `<your Docker Hub account>` value with your account name and `<your suffix>` value with what you used previously in the `jakartaee-cafe.yml` file, then deploy the application:
    ```
@@ -74,9 +74,4 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Delete the Jakartaee EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
-   ```
-
-* Delete Postgres:
-   ```
-   kubectl delete -f postgres.yml
    ```
