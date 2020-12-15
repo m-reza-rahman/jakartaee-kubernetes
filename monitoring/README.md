@@ -1,6 +1,6 @@
 # Jakarta EE Application Server Monitoring with Kubernetes
 
-This demo will show how to make Kubernetes liveness/readyness probes and monitoring via Prometheus work with MicroProfile Health and Metrics.
+This demo will show how to make Kubernetes liveness/readiness probes and monitoring via Prometheus work with MicroProfile Health and Metrics.
 
 ## Prerequisites
 
@@ -35,8 +35,9 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Open Eclipse.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to monitoring/.
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.4.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`. Note that we also use the WebSphere installation utility to install the admin center that we will use to administer the application.
-* You should also note the `server.xml`. We have added an admin role to access the adminstrative tool with.
+* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.4.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* You should note the `server.xml`. We have added an admin role to access the adminstrative tool with. We have also enabled both MicroProfile Health and Metrics.
+* You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
 * Log in to Docker Hub using the docker login command:
    ```
