@@ -7,6 +7,7 @@ Factors demostrated include:
 
 * How to make application server administration, clustering, auto-scaling, auto-discovery and load-balancing work with Kubernetes deployments. The [clustering](/clustering) folder shows how this is done.
 * How to take advantage of the self-healing and monitoring capabilities of Kubernetes such as liveness/readiness probes and Prometheus. The [monitoring](/monitoring) folder shows how this is done.
+* How to use Kubernetes Operators to more effectively manage application server clusters.
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
 The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
