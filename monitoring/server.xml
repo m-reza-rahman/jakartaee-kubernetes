@@ -6,7 +6,7 @@
 		<feature>sessionDatabase-1.0</feature>
                 <feature>adminCenter-1.0</feature>
     	        <feature>mpHealth-2.2</feature>
-		<feature>mpMetrics-2.3</feature>                
+		<feature>mpMetrics-2.2</feature>                
 	</featureManager>
 
 	<!-- This template enables security. To get the full use of all the capabilities, 
