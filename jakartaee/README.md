@@ -5,8 +5,8 @@ We use Eclipse but you can use any Maven capable IDE such as IntelliJ, NetBeans 
 
 ## Setup
 
-- Install JDK 8 (we used [AdoptOpenJDK OpenJDK 8 LTS/HotSpot](https://adoptopenjdk.net)).
-- Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
+- Install JDK 11 (we used [AdoptOpenJDK OpenJDK 11 LTS/OpenJ9](https://adoptopenjdk.net)).
+- Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 - Install Docker for your OS.
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
