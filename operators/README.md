@@ -32,10 +32,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
   
 ## Set Up the Liberty Operator
+* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
 * Install the Custom Resource Definitions (CRDs) for Liberty by running the following command:
 
    ```
-   kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-crd.yaml
+   kubectl apply -f openliberty-app-crd.yaml
    ```
 
 ## Deploy the Jakarta EE Application on Kubernetes
