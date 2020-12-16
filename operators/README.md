@@ -38,7 +38,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl apply -f openliberty-app-crd.yaml
    ```
-* Install cluster-level role-based access by running the following command:
+* Install cluster-level role-based access for the Operator by running the following command:
 
    ```
    kubectl apply -f openliberty-app-cluster-rbac.yaml
