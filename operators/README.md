@@ -38,7 +38,16 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl apply -f openliberty-app-crd.yaml
    ```
+* Install cluster-level role-based access by running the following command:
 
+   ```
+   kubectl apply -f openliberty-app-cluster-rbac.yaml
+   ```
+* Install the operator itself by running the following command:
+
+   ```
+   kubectl apply -f openliberty-app-operator.yaml
+   ```
 ## Deploy the Jakarta EE Application on Kubernetes
 * Open Eclipse.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
