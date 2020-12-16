@@ -29,7 +29,14 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    az aks get-credentials --resource-group jakartaee-cafe-group-<your suffix> --name jakartaee-cafe-cluster-<your suffix>
    ```
-  If you get an error about an already existing resource, you may need to delete the ~/.kube directory. 
+  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
+  
+## Set Up the Liberty Operator
+* Install the Custom Resource Definitions (CRDs) for Liberty by running the following command:
+
+   ```
+   kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.0/openliberty-app-crd.yaml
+   ```
 
 ## Deploy the Jakarta EE Application on Kubernetes
 * Open Eclipse.
