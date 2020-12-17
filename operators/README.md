@@ -86,10 +86,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
  	```
 
 * You can now also log into the administrative tool using the credentials in the server.xml and administer the application by accessing `https://<External IP Address>/adminCenter`.
-* Scale your application:
-   ```
-   kubectl scale deployment jakartaee-cafe --replicas=3
-   ```
    
 ## Deleting the Resources
 * Delete the Jakartaee EE deployment:
