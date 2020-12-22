@@ -1,6 +1,6 @@
 # Jakarta EE Application Server Monitoring with Kubernetes
 
-This demo will show how to make Kubernetes liveness/readiness probes and monitoring via Prometheus work with MicroProfile Health and Metrics.
+This demo will show how to make Kubernetes liveness/readiness probes and monitoring via Prometheus/Grafana work with MicroProfile Health and Metrics.
 
 ## Prerequisites
 
