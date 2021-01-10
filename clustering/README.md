@@ -30,7 +30,25 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    az aks get-credentials --resource-group jakartaee-cafe-group-<your suffix> --name jakartaee-cafe-cluster-<your suffix>
    ```
-  If you get an error about an already existing resource, you may need to delete the ~/.kube directory. 
+  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
+  
+## Setup Ingress Controller
+* Create a namespace for your ingress resources by running the following command:
+   ```
+   kubectl create namespace ingress-basic
+   ```
+* Add the ingress-nginx repository by running the following command:
+   ```
+   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx 
+   ```
+* Use Helm to deploy an NGINX ingress controller:
+   ```
+   helm install nginx-ingress ingress-nginx/ingress-nginx \
+       --namespace ingress-basic \
+       --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+       --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+       --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux   
+   ```    
 
 ## Deploy the Jakarta EE Application on Kubernetes
 * Open Eclipse.
