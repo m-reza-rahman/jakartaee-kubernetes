@@ -71,19 +71,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    kubectl create -f jakartaee-cafe.yml
    ```
 
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
+* Once all the pods are ready and running, the application will be accessible at `http://<Ingress External IP Address>/jakartaee-cafe`:
    ```
-   kubectl get svc jakartaee-cafe --watch
+   kubectl get pods --watch
    ```
-  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-
-   > **Note:** Use the command below to find the assigned IP address and port if you are running Kubernetes locally on `Minikube`:
-
- 	```
- 	minikube service jakartaee-cafe --url
- 	```
-
-* You can now also log into the administrative console using the credentials in the server.xml and administer the application by accessing `https://<External IP Address>/adminCenter`.
+* You can now also log into the administrative console using the credentials in the server.xml and administer the application by accessing `https://<Ingress External IP Address>/adminCenter`.
 * Scale your application:
    ```
    kubectl scale deployment jakartaee-cafe --replicas=3
@@ -93,4 +85,8 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Delete the Jakartaee EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
+   ```
+* Delete the ingress controller namespace:
+   ```
+   kubectl delete namespace ingress-basic   
    ```
