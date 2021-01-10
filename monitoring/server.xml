@@ -67,9 +67,5 @@
 			includes="postgresql-42.2.4.jar" />
 	</library>
 	
-	<remoteFileAccess>
-		<writeDir>${server.config.dir}</writeDir>
-	</remoteFileAccess>
-	
 	<applicationMonitor updateTrigger="mbean" />	
 </server>
