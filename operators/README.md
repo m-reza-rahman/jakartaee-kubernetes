@@ -88,3 +88,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl delete -f jakartaee-cafe.yml
    ```
+* Delete the Liberty Operator:
+   ```
+   kubectl delete -f openliberty-app-operator.yaml
+   ```
