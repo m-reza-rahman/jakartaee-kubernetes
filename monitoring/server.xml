@@ -4,7 +4,6 @@
 	<featureManager>
 		<feature>javaee-8.0</feature>
 		<feature>sessionDatabase-1.0</feature>
-                <feature>adminCenter-1.0</feature>
     	        <feature>mpHealth-2.2</feature>
 		<feature>mpMetrics-2.2</feature>                
 	</featureManager>
@@ -28,10 +27,6 @@
 		<user name="admin" password="admin123" />
 	</basicRegistry>
 	
-	<administrator-role>
-		<user>admin</user>
-	</administrator-role>	
-
 	<keyStore id="defaultKeyStore" password="admin123" />
 	
         <mpMetrics authentication="false"/>	
