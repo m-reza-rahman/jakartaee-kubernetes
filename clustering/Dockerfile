@@ -1,6 +1,7 @@
-FROM websphere-liberty
-RUN installUtility install adminCenter-1.0 --acceptLicense
+FROM websphere-liberty:kernel
 
-COPY postgresql-42.2.4.jar /opt/ibm/wlp/usr/shared/resources/
-COPY server.xml /config/
-ADD jakartaee-cafe.war /config/dropins/jakartaee-cafe.war
+COPY --chown=1001:0 postgresql-42.2.4.jar /opt/ibm/wlp/usr/shared/resources/
+COPY --chown=1001:0 server.xml /config/
+COPY --chown=1001:0 jakartaee-cafe.war /config/dropins/
+
+RUN configure.sh
