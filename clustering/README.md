@@ -43,11 +43,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
 * Use Helm to deploy an NGINX ingress controller:
    ```
-   helm install nginx-ingress ingress-nginx/ingress-nginx \
-       --namespace ingress-basic \
-       --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-       --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-       --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux   
+   helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
    ```    
 
 ## Deploy the Jakarta EE Application on Kubernetes
