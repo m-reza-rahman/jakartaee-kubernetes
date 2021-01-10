@@ -45,7 +45,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
    ```
-* Note down the external IP address of the Ingress controller/load-balancer when it becomes available:
+* Note down the external IP address of the Ingress controller/load-balancer when it becomes available (enter CTRL-C when done):
    ```
    kubectl --namespace ingress-basic get services --watch
    ```   
