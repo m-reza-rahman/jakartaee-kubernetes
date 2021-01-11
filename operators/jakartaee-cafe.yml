@@ -14,7 +14,7 @@ spec:
     - name: POSTGRES_PASSWORD
       value: "Secret123!"
   service:
-    type: LoadBalancer
+    type: ClusterIP
     ports:
       - name: http
         port: 80
@@ -22,3 +22,26 @@ spec:
       - name: https
         port: 443
         targetPort: 9443
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: jakartaee-cafe
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"    
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: jakartaee-cafe
+          servicePort: 80
+        path: /
+      - backend:
+          serviceName: jakartaee-cafe
+          servicePort: 443
+        path: /
