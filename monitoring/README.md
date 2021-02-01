@@ -68,7 +68,22 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl scale deployment jakartaee-cafe --replicas=3
    ```
-   
+## Deploy Prometheus to Kubernetes
+The next step is to get Prometheus up and running on the Kubernetes cluster so that it can begin scraping metrics from the application.
+* You must first grant Prometheus the necessary cluster permissions by issuing the following command:
+   ```
+   kubectl apply -f prometheus-rbac.yml
+   ```
+* You need to deploy Prometheus by issuing the following command. You should explore the `prometheus.yml` file. It is configured to collect the MicroProfile Metrics data from the Open Liberty deployments.
+   ```
+   kubectl apply -f prometheus.yml
+   ```
+* Get the External IP address of the Prometheus Service, the Prometheus console will be accessible at `http://<External IP Address>:9090`:
+   ```
+   kubectl get service prometheus --watch
+   ```
+  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
+  
 ## Deleting the Resources
 * Delete the Jakartaee EE deployment:
    ```
