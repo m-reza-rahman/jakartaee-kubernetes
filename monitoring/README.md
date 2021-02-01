@@ -78,13 +78,17 @@ The next step is to get Prometheus up and running on the Kubernetes cluster so t
    ```
    kubectl apply -f prometheus.yml
    ```
-* Get the External IP address of the Prometheus Service, the Prometheus console will be accessible at `http://<External IP Address>:9090`:
+* Get the External IP address of the Prometheus service, the Prometheus UI will be accessible at `http://<External IP Address>:9090`:
    ```
    kubectl get service prometheus --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
   
 ## Deleting the Resources
+* Delete the Prometheus deployment:
+   ```
+   kubectl delete -f prometheus.yml
+   ```
 * Delete the Jakartaee EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
