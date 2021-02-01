@@ -70,14 +70,14 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
 
 ## Deploy Prometheus/Grafana Dashboard to Kubernetes
+The next step is to get Prometheus/Grafana up and running on the Kubernetes cluster so you can view a dashboard with the metrics from the application.
 
+* You must first build the custom Prometheus image and push the image to Docker Hub by issuing the following commands. You should explore the `prometheus.yml` file referenced in the Docker build. It is configured to collect the MicroProfile Metrics data from the Open Liberty deployments.
    ```
-   docker build -t rezarahman/prometheus:v1 -f Dockerfile-prometheus .
+   docker build -t <your Docker Hub account>/prometheus:v1 -f Dockerfile-prometheus .
+   docker push <your Docker Hub account>/prometheus:v1
    ```
-   
-   ```
-   docker push rezarahman/prometheus:v1   
-   ```
+
 
    ```
    docker build -t rezarahman/grafana:v1 -f Dockerfile-grafana .
@@ -93,7 +93,7 @@ The next step is to get Prometheus up and running on the Kubernetes cluster so t
    ```
    kubectl apply -f prometheus-rbac.yml
    ```
-* You need to deploy Prometheus by issuing the following command. You should explore the `prometheus.yml` file. It is configured to collect the MicroProfile Metrics data from the Open Liberty deployments.
+* You need to deploy Prometheus by issuing the following command. .
    ```
    kubectl apply -f prometheus.yml
    ```
