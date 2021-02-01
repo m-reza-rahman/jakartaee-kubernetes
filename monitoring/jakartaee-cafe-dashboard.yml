@@ -65,7 +65,7 @@ kind: Service
 metadata:
   name: prometheus
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: prometheus
   ports:
