@@ -68,6 +68,25 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl scale deployment jakartaee-cafe --replicas=3
    ```
+
+## Deploy Prometheus/Grafana Dashboard to Kubernetes
+
+   ```
+   docker build -t rezarahman/prometheus:v1 -f Dockerfile-prometheus .
+   ```
+   
+   ```
+   docker push rezarahman/prometheus:v1   
+   ```
+
+   ```
+   docker build -t rezarahman/grafana:v1 -f Dockerfile-grafana .
+   ```   
+   
+   ```
+   docker push rezarahman/grafana:v1
+   ```   
+
 ## Deploy Prometheus to Kubernetes
 The next step is to get Prometheus up and running on the Kubernetes cluster so that it can begin scraping metrics from the application.
 * You must first grant Prometheus the necessary cluster permissions by issuing the following command:

@@ -1,58 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: prometheus
-  namespace: default
-spec:
-  selector:
-    matchLabels:
-      app: prometheus
-  template:
-    metadata:
-      labels:
-        app: prometheus
-    spec:
-      serviceAccountName: prometheus
-      containers:
-      - name: prometheus
-        image: prom/prometheus
-        ports:
-        - containerPort: 9090
-        volumeMounts:
-        - name: prometheus-config-volume
-          mountPath: /etc/prometheus/prometheus.yml
-          subPath: prometheus.yml
-      volumes:
-      - name: prometheus-config-volume
-        configMap:
-          name: prometheus-config
-      restartPolicy: Always
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: prometheus-config
-data:
-  prometheus.yml: |
-    global:
-      scrape_interval: 5s
-      external_labels:
-        monitor: 'jakartaee-cafe-monitor'
-    scrape_configs:
-    - job_name: 'jakartaee-cafe-metric'
-      metrics_path: /metrics/
-      static_configs:
-      - targets: ['jakartaee-cafe:80']
-      scheme: http
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: prometheus
-spec:
-  type: LoadBalancer
-  selector:
-    app: prometheus
-  ports:
-  - port: 9090
-    name: http
+global:
+  scrape_interval: 5s
+  external_labels:
+    monitor: 'jakartaee-cafe-monitor'
+scrape_configs:
+- job_name: 'jakartaee-cafe-metric'
+  metrics_path: /metrics/
+  static_configs:
+  - targets: ['jakartaee-cafe:80']
+  scheme: http
