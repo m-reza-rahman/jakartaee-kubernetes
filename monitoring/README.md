@@ -89,6 +89,10 @@ The next step is to get Prometheus up and running on the Kubernetes cluster so t
    ```
    kubectl delete -f prometheus.yml
    ```
+* Remove the Prometheus permissions:
+   ```
+   kubectl delete -f prometheus-rbac.yml
+   ```   
 * Delete the Jakartaee EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
