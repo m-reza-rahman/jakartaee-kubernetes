@@ -87,7 +87,7 @@ The next step is to get Prometheus/Grafana up and running on the Kubernetes clus
    ```
    kubectl apply -f jakartaee-cafe-dashboard.yml
    ```
-* Get the External IP address of the Grafana service, the Grafana UI, including the provisioned dashboard will be accessible at `http://<External IP Address>:3000`:
+* Get the External IP address of the Grafana service. The Grafana UI, including the provisioned dashboard will be accessible at `http://<External IP Address>:3000`:
    ```
    kubectl get service grafana --watch
    ```
