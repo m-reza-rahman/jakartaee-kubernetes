@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-     {
-       "name": "DS_PROMETHEUS",
-       "label": "Prometheus",
-       "description": "",
-       "type": "datasource",
-       "pluginId": "prometheus",
-       "pluginName": "Prometheus"
-     }
-   ],
-  "__requires": [
-     {
-       "type": "grafana",
-       "id": "grafana",
-       "name": "Grafana",
-       "version": "5.2.0"
-     },
-     {
-       "type": "panel",
-       "id": "graph",
-       "name": "Graph",
-       "version": "5.0.0"
-     },
-     {
-       "type": "datasource",
-       "id": "prometheus",
-       "name": "Prometheus",
-       "version": "5.0.0"
-     },
-     {
-       "type": "panel",
-       "id": "table",
-       "name": "Table",
-       "version": "5.0.0"
-     }
-   ],
   "annotations": {
     "list": [
       {
@@ -51,11 +15,13 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1587406765528,
+  "id": 2,
+  "iteration": 1612228341955,
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -63,336 +29,363 @@
         "y": 0
       },
       "id": 45,
-      "panels": [
-        {
-          "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The total number of CPU threads available to the JVM.",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 6,
-            "w": 24,
-            "x": 0,
-            "y": 1
-          },
-          "id": 39,
-          "links": [],
-          "options": {},
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 8,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time",
-              "type": "hidden"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "__name__",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "endpoint",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "instance",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 2,
-              "mappingType": 1,
-              "pattern": "job",
-              "thresholds": [],
-              "type": "hidden",
-              "unit": "short"
-            },
-            {
-              "alias": "Threads",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 0,
-              "mappingType": 1,
-              "pattern": "Value",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "base_cpu_availableProcessors{pod=~`[[pod]]`}",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "legendFormat": "pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Available CPUs",
-          "transform": "table",
-          "type": "table"
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The portion of CPU available to each Liberty instance that has been used within the last [[dur]] on average.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 0,
-            "y": 7
-          },
-          "hiddenSeries": false,
-          "id": 20,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(base_cpu_processCpuTime_seconds{pod=~`[[pod]]`}[[cpuDur]]) / base_cpu_availableProcessors",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 2,
-              "legendFormat": "pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Process CPU Time",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "decimals": 0,
-              "format": "percentunit",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "min": "0",
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "For CPUs Liberty is running on, the average number of runnable entities that have been scheduled or executed by the system, over the last minute.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 7
-          },
-          "hiddenSeries": false,
-          "id": 21,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "base_cpu_systemLoadAverage{pod=~`[[pod]]`}",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 2,
-              "legendFormat": "pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "CPU System Load",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "CPU",
       "type": "row"
     },
     {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "The total number of CPU threads available to the JVM.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 39,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 8,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "endpoint",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Threads",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "base_cpu_availableProcessors{pod=~`[[pod]]`}",
+          "format": "table",
+          "instant": true,
+          "intervalFactor": 2,
+          "legendFormat": "pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Available CPUs",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "The portion of CPU available to each Liberty instance that has been used within the last [[dur]] on average.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 20,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(base_cpu_processCpuTime_seconds{pod=~`[[pod]]`}[[cpuDur]]) / base_cpu_availableProcessors",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Process CPU Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 0,
+          "format": "percentunit",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "For CPUs Liberty is running on, the average number of runnable entities that have been scheduled or executed by the system, over the last minute.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 21,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "base_cpu_systemLoadAverage{pod=~`[[pod]]`}",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU System Load",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 16
       },
       "id": 46,
       "panels": [
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Pods that are currently utilizing more than [$heapUsageThreshold%] of their configured maximum heap size.",
           "fontSize": "100%",
           "gridPos": {
@@ -413,12 +406,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time|endpoint|job|instance",
               "type": "hidden"
             },
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -445,11 +440,11 @@
           "timeShift": null,
           "title": "Pods Above [$heapUsageThreshold%] Heap Usage",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Pods with an increase in heap usage within the last [[dur]].",
           "fontSize": "100%",
           "gridPos": {
@@ -470,12 +465,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time|job|instance|endpoint",
               "type": "hidden"
             },
             {
               "alias": "Rate of Change",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(50, 172, 45, 0.97)",
@@ -505,11 +502,11 @@
           "timeShift": null,
           "title": "Increasing Heap Usage Trend Based on Last [[dur]]",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Pods projected to reach their maximum heap size within [$maxHeapUsageProjection hour(s)] based on  data over the last [[dur]].",
           "fontSize": "100%",
           "gridPos": {
@@ -531,12 +528,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time|job|instance|endpoint",
               "type": "hidden"
             },
             {
               "alias": "Predicted Value",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -563,11 +562,11 @@
           "timeShift": null,
           "title": "Servers That May Reach Max Heap Usage Within [$maxHeapUsageProjection hour(s)] Based on Last [[dur]]",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "A pod's maximum heap size.",
           "fontSize": "100%",
           "gridPos": {
@@ -589,6 +588,7 @@
           "styles": [
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -605,6 +605,7 @@
             },
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -631,14 +632,14 @@
           ],
           "title": "Configured Maximum Heap Size",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The percentage of heap memory currently in use.",
           "fill": 1,
           "fillGradient": 0,
@@ -737,17 +738,18 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 17
       },
       "id": 105,
       "panels": [
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average response time for requests made to a particular REST resource method, based on data over the last [[dur]].",
           "fontSize": "100%",
           "gridPos": {
@@ -769,12 +771,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time",
               "type": "hidden"
             },
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -789,6 +793,7 @@
             },
             {
               "alias": "Average Response Time",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -818,14 +823,14 @@
           "timeShift": null,
           "title": "Slowest REST Resources Over Last [[dur]] by Average Response Time",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The number of visits made to a REST resource instance within the past [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -918,7 +923,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average response time for a request made to a REST resource instance, based on data over the last [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -1010,7 +1015,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The sum of visits to a particular REST resource over all servers, based on data over the last [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -1102,7 +1107,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average response time for requests made to a particular REST resource method, based on data over the last [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -1195,17 +1200,18 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 18
       },
       "id": 47,
       "panels": [
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average response time for requests made to a particular servlet, across all servers, based on data over the last [[dur]].",
           "fontSize": "100%",
           "gridPos": {
@@ -1230,12 +1236,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time",
               "type": "hidden"
             },
             {
               "alias": "Average Response Time",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1264,14 +1272,14 @@
           "timeShift": null,
           "title": "Slowest Servlets Over Last [[dur]] by Average Response Time",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The number of visits made to a servlet instance within the past [[dur]].",
           "fill": 0,
           "fillGradient": 0,
@@ -1362,7 +1370,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average response time for a request made to a servlet instance, based on data over the last [[dur]].",
           "fill": 0,
           "fillGradient": 0,
@@ -1453,7 +1461,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The sum of visits to a particular servlet over all servers, based on data over the last [[dur]].",
           "fill": 0,
           "fillGradient": 0,
@@ -1545,7 +1553,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "description": "The average response time for requests made to a particular servlet, across all servers, based on data over the last [[dur]].",
           "fill": 0,
@@ -1643,17 +1651,18 @@
     },
     {
       "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 19
       },
       "id": 48,
       "panels": [
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The total number of connection requests that were used over the last [[dur]]. Any connections that are currently in use are not included in this total.",
           "fontSize": "100%",
           "gridPos": {
@@ -1675,12 +1684,14 @@
           "styles": [
             {
               "alias": "Time",
+              "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
               "pattern": "Time|__name__|endpoint|job|instance",
               "type": "hidden"
             },
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1709,11 +1720,11 @@
           "timeShift": null,
           "title": "Connections Used Over Last [[dur]]",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The total number of connection requests that waited for a connection because of a full connection pool over the last [[dur]].",
           "fontSize": "100%",
           "gridPos": {
@@ -1734,6 +1745,7 @@
           "styles": [
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1748,6 +1760,7 @@
             },
             {
               "alias": "",
+              "align": "auto",
               "colorMode": null,
               "colors": [
                 "rgba(245, 54, 54, 0.9)",
@@ -1776,14 +1789,14 @@
           "timeShift": null,
           "title": "Connection Requests Queued Over Last [[dur]]",
           "transform": "table",
-          "type": "table"
+          "type": "table-old"
         },
         {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average time any used connection was put in use, based on data over the last [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -1874,7 +1887,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The average wait time for any queued connection request, based on data over the last [[dur]].",
           "fill": 1,
           "fillGradient": 0,
@@ -1964,7 +1977,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The sum of managed connections in the free, shared, and unshared pools.",
           "fill": 1,
           "fillGradient": 0,
@@ -2059,7 +2072,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The number of managed connections in the free pool.",
           "fill": 1,
           "fillGradient": 0,
@@ -2154,7 +2167,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The number of connections that are in use. This number might include multiple connections that are shared from a single managed connection.",
           "fill": 1,
           "fillGradient": 0,
@@ -2249,7 +2262,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The total number of managed connections created since the pool was created.",
           "fill": 1,
           "fillGradient": 0,
@@ -2344,7 +2357,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The total number of managed connections destroyed since the pool was created.",
           "fill": 1,
           "fillGradient": 0,
@@ -2441,781 +2454,849 @@
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 20
       },
       "id": 49,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "A session is considered active if the application server is processing a request that uses that user session.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 6
-          },
-          "hiddenSeries": false,
-          "id": 32,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "vendor_session_activeSessions{pod=~`[[pod]]`}",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "appname: {{appname}}, pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Active Sessions",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "A session is considered live if the session is loaded into memory by the application server.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 13
-          },
-          "hiddenSeries": false,
-          "id": 33,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "hideZero": false,
-            "max": true,
-            "min": true,
-            "rightSide": false,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "vendor_session_liveSessions{pod=~`[[pod]]`}",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 2,
-              "legendFormat": "appname: {{appname}}, pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Live Sessions",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Sessions",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "A session is considered active if the application server is processing a request that uses that user session.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 32,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "vendor_session_activeSessions{pod=~`[[pod]]`}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "appname: {{appname}}, pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Active Sessions",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "A session is considered live if the session is loaded into memory by the application server.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
+      },
+      "hiddenSeries": false,
+      "id": 33,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "vendor_session_liveSessions{pod=~`[[pod]]`}",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "appname: {{appname}}, pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Live Sessions",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 35
       },
       "id": 50,
-      "panels": [
-        {
-          "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The size of the Default Executor thread pool in each instance.",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 6,
-            "w": 24,
-            "x": 0,
-            "y": 7
-          },
-          "id": 61,
-          "links": [],
-          "options": {},
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 8,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time|endpoint|instance|job",
-              "type": "hidden"
-            },
-            {
-              "alias": "Threads",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 0,
-              "pattern": "Value",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "max_over_time(vendor_threadpool_size{pod=~`[[pod]]`}[[dur]])",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Largest Threadpool Sizes Over Last [[dur]]",
-          "transform": "table",
-          "type": "table"
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The number of threads that are actively running tasks.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 13
-          },
-          "hiddenSeries": false,
-          "id": 37,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "vendor_threadpool_activeThreads{pod=~`[[pod]]`}",
-              "format": "time_series",
-              "hide": false,
-              "instant": false,
-              "intervalFactor": 2,
-              "legendFormat": "pool: {{pool}}, pod: {{pod}}, instance: {{instance}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Active Threads",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "decimals": 1,
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The size of the Default Executor thread pool in each instance.",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 20
-          },
-          "hiddenSeries": false,
-          "id": 38,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "vendor_threadpool_size{pod=~`[[pod]]`}",
-              "format": "time_series",
-              "instant": false,
-              "intervalFactor": 2,
-              "legendFormat": "pool: {{pool}}, pod: {{pod}}, instance: {{instance}}",
-              "refId": "B"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Threadpool Size",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Threadpools",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "The size of the Default Executor thread pool in each instance.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 61,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 8,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time|endpoint|instance|job",
+          "type": "hidden"
+        },
+        {
+          "alias": "Threads",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "max_over_time(vendor_threadpool_size{pod=~`[[pod]]`}[[dur]])",
+          "format": "table",
+          "instant": true,
+          "intervalFactor": 2,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Largest Threadpool Sizes Over Last [[dur]]",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "The number of threads that are actively running tasks.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "hiddenSeries": false,
+      "id": 37,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "vendor_threadpool_activeThreads{pod=~`[[pod]]`}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "pool: {{pool}}, pod: {{pod}}, instance: {{instance}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Active Threads",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": 1,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "The size of the Default Executor thread pool in each instance.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "hiddenSeries": false,
+      "id": 38,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "vendor_threadpool_size{pod=~`[[pod]]`}",
+          "format": "time_series",
+          "instant": false,
+          "intervalFactor": 2,
+          "legendFormat": "pool: {{pool}}, pod: {{pod}}, instance: {{instance}}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Threadpool Size",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 56
       },
       "id": 51,
-      "panels": [
-        {
-          "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "Pods that spent more than [$garbageCollectionThreshold%] of the time garbage collecting, during the last [[dur]].",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 6,
-            "w": 24,
-            "x": 0,
-            "y": 8
-          },
-          "id": 77,
-          "links": [],
-          "options": {},
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 4,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time|endpoint|instance|job",
-              "type": "hidden"
-            },
-            {
-              "alias": "Portion of Time",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "Value",
-              "thresholds": [],
-              "type": "number",
-              "unit": "percentunit"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "sum(rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]])) by (namespace, pod, service) > [[garbageCollectionThreshold]] / 100",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Pods With > [$garbageCollectionThreshold]% of Time Spent Garbage Collecting During Last [[dur]]",
-          "transform": "table",
-          "type": "table"
-        },
-        {
-          "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The portion of time an instance spent on a specific type of garbage collection, based on data over the last [[dur]]. ",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 14
-          },
-          "id": 63,
-          "links": [],
-          "options": {},
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 8,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "link": false,
-              "pattern": "Time|job|endpoint|instance",
-              "type": "hidden"
-            },
-            {
-              "alias": "Portion of Time",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "Value",
-              "thresholds": [],
-              "type": "number",
-              "unit": "percentunit"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]]) > 0",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Most Time Spent on Garbage Collection Over Last [[dur]]",
-          "transform": "table",
-          "type": "table"
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "decimals": 2,
-          "description": "The average time an instance took on a specific type of garbage collection, based on data over the last [[dur]].",
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 21
-          },
-          "hiddenSeries": false,
-          "id": 40,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": false,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]]) / rate(base_gc_total{pod=~`[[pod]]`}[[dur]])",
-              "format": "time_series",
-              "instant": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "pod: {{pod}}, instance: {{instance}}, name: {{name}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Time per Garbage Collection Cycle [[dur]] moving average",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Garbage Collection",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "Pods that spent more than [$garbageCollectionThreshold%] of the time garbage collecting, during the last [[dur]].",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 57
+      },
+      "id": 77,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 4,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time|endpoint|instance|job",
+          "type": "hidden"
+        },
+        {
+          "alias": "Portion of Time",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percentunit"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]])) by (namespace, pod, service) > [[garbageCollectionThreshold]] / 100",
+          "format": "table",
+          "instant": true,
+          "intervalFactor": 2,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Pods With > [$garbageCollectionThreshold]% of Time Spent Garbage Collecting During Last [[dur]]",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "The portion of time an instance spent on a specific type of garbage collection, based on data over the last [[dur]]. ",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 63,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 8,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "link": false,
+          "pattern": "Time|job|endpoint|instance",
+          "type": "hidden"
+        },
+        {
+          "alias": "Portion of Time",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percentunit"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]]) > 0",
+          "format": "table",
+          "instant": true,
+          "intervalFactor": 2,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Most Time Spent on Garbage Collection Over Last [[dur]]",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "The average time an instance took on a specific type of garbage collection, based on data over the last [[dur]].",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "hiddenSeries": false,
+      "id": 40,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(base_gc_time_seconds{pod=~`[[pod]]`}[[dur]]) / rate(base_gc_total{pod=~`[[pod]]`}[[dur]])",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "pod: {{pod}}, instance: {{instance}}, name: {{name}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Time per Garbage Collection Cycle [[dur]] moving average",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 78
       },
       "id": 52,
-      "panels": [
-        {
-          "columns": [],
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The time elapsed since the start of the JVM.",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 10,
-            "w": 24,
-            "x": 0,
-            "y": 9
-          },
-          "id": 43,
-          "links": [],
-          "options": {},
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 8,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time|endpoint|instance|job|\\__name__",
-              "type": "hidden"
-            },
-            {
-              "alias": "Uptime",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "decimals": 0,
-              "pattern": "Value",
-              "thresholds": [],
-              "type": "number",
-              "unit": "dtdurations"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "base_jvm_uptime_seconds{pod=~`[[pod]]`}",
-              "format": "table",
-              "instant": true,
-              "intervalFactor": 2,
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "title": "JVM Uptime",
-          "transform": "table",
-          "type": "table"
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Other JVM Information",
       "type": "row"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "The time elapsed since the start of the JVM.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 79
+      },
+      "id": 43,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 8,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time|endpoint|instance|job|\\__name__",
+          "type": "hidden"
+        },
+        {
+          "alias": "Uptime",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "dtdurations"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "base_jvm_uptime_seconds{pod=~`[[pod]]`}",
+          "format": "table",
+          "instant": true,
+          "intervalFactor": 2,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "title": "JVM Uptime",
+      "transform": "table",
+      "type": "table-old"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 18,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3223,13 +3304,17 @@
       {
         "allValue": null,
         "current": {
-          "text": "All",
+          "selected": true,
+          "text": [
+            "All"
+          ],
           "value": [
             "$__all"
           ]
         },
         "datasource": "default",
         "definition": "base_cpu_processCpuLoad_percent",
+        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "pod",
@@ -3254,6 +3339,7 @@
           "text": "[10m]",
           "value": "[10m]"
         },
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "moving average",
@@ -3307,6 +3393,7 @@
           "text": "80",
           "value": "80"
         },
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Heap Usage Threshold (%)",
@@ -3374,6 +3461,7 @@
           "text": "1",
           "value": "1"
         },
+        "error": null,
         "hide": 2,
         "label": "Max Heap Usage Projection (hours)",
         "name": "maxHeapUsageProjection",
@@ -3393,6 +3481,7 @@
           "text": "[1m]",
           "value": "[1m]"
         },
+        "error": null,
         "hide": 2,
         "label": null,
         "name": "cpuDur",
@@ -3414,6 +3503,7 @@
           "text": "10",
           "value": "10"
         },
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Garbage Collection Threshold (%)",
@@ -3477,6 +3567,7 @@
       },
       {
         "datasource": null,
+        "error": null,
         "filters": [],
         "hide": 0,
         "label": "",
@@ -3516,7 +3607,7 @@
     ]
   },
   "timezone": "",
-  "title": "Liberty-Metrics-M2-G5-20200421",
-  "uid": "websphere-liberty-m2",
-  "version": 1
+  "title": "JakartaEE-Cafe-Metrics",
+  "uid": "jakartaee-cafe-metrics",
+  "version": 2
 }
