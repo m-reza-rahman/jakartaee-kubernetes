@@ -78,40 +78,27 @@ The next step is to get Prometheus/Grafana up and running on the Kubernetes clus
    docker push <your Docker Hub account>/prometheus:v1
    ```
 
-
+* You must then build the custom Granafa image and push the image to Docker Hub by issuing the following commands. The Grafana image is configured with Prometheus as a data source as well as an Open Liberty dashboard that works with MicroProfile Metrics.
    ```
-   docker build -t rezarahman/grafana:v1 -f Dockerfile-grafana .
+   docker build -t <your Docker Hub account>/grafana:v1 -f Dockerfile-grafana .
+   docker push <your Docker Hub account>/grafana:v1
    ```   
-   
+* You need to deploy Prometheus and Grafana by issuing the following command. Please replace the `<your Docker Hub account>` value with your account name in the `jakartaee-cafe-dashboard.yml` file before issuing the command.
    ```
-   docker push rezarahman/grafana:v1
-   ```   
-
-## Deploy Prometheus to Kubernetes
-The next step is to get Prometheus up and running on the Kubernetes cluster so that it can begin scraping metrics from the application.
-* You must first grant Prometheus the necessary cluster permissions by issuing the following command:
+   kubectl apply -f jakartaee-cafe-dashboard.yml
    ```
-   kubectl apply -f prometheus-rbac.yml
+* Get the External IP address of the Grafana service, the Grafana UI, including the provisioned dashboard will be accessible at `http://<External IP Address>:3000`:
    ```
-* You need to deploy Prometheus by issuing the following command. .
-   ```
-   kubectl apply -f prometheus.yml
-   ```
-* Get the External IP address of the Prometheus service, the Prometheus UI will be accessible at `http://<External IP Address>:9090`:
-   ```
-   kubectl get service prometheus --watch
+   kubectl get service grafana --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
   
 ## Deleting the Resources
-* Delete the Prometheus deployment:
+* Delete the Prometheus/Grafana deployment:
    ```
-   kubectl delete -f prometheus.yml
+   kubectl delete -f jakartaee-cafe-dashboard.yml
    ```
-* Remove the Prometheus permissions:
-   ```
-   kubectl delete -f prometheus-rbac.yml
-   ```   
+
 * Delete the Jakartaee EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
