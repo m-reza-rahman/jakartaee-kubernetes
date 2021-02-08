@@ -92,7 +92,13 @@ The next step is to get Prometheus/Grafana up and running on the Kubernetes clus
    kubectl get service grafana --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-  
+
+* You can also explore the Prometheus UI. Get the External IP address of the Prometheus service to do this. The Prometheus UI will be accessible at `http://<External IP Address>:9090`:
+   ```
+   kubectl get service prometheus --watch
+   ```
+  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
+
 ## Deleting the Resources
 * Delete the Prometheus/Grafana deployment:
    ```
