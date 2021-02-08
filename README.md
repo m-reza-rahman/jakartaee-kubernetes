@@ -11,3 +11,7 @@ Factors demostrated include:
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
 The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
+
+## To Do
+* Use Prometheus Operator?
+* Use Grafana Operator?
