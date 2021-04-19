@@ -6,7 +6,6 @@ This demo will show how to use Kubernetes Operators to more effectively manage a
 
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform including running Kubernetes locally.
 - You need to have Docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
-- You will need to [install Helm](https://helm.sh/docs/intro/install/).
 
 ## Start Managed PostgreSQL on Azure
 We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
@@ -32,23 +31,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
   
-## Setup Ingress Controller
-* Create a namespace for your ingress resources by running the following command:
-   ```
-   kubectl create namespace ingress-basic
-   ```
-* Add the ingress-nginx repository by running the following command:
-   ```
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx 
-   ```
-* Use Helm to deploy an NGINX ingress controller:
-   ```
-   helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
-   ```
-* Note down the external IP address of the Ingress controller/load-balancer when it becomes available (enter CTRL-C when done):
-   ```
-   kubectl --namespace ingress-basic get services --watch
-   ```  
 ## Set Up the Liberty Operator
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
 * Install the Custom Resource Definitions (CRDs) for Liberty by running the following command:
@@ -86,11 +68,17 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl create -f jakartaee-cafe.yml
    ```
-* Once all the pods are ready and running, the application will be accessible at `http://<Ingress External IP Address>/jakartaee-cafe`:
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
    ```
-   kubectl get pods --watch
+   kubectl get svc jakartaee-cafe --watch
    ```
-* You can now also log into the administrative console using the credentials in the server.xml and administer the application by accessing `https://<Ingress External IP Address>/adminCenter`.
+  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
+
+   > **Note:** Use the command below to find the assigned IP address and port if you are running Kubernetes locally on `Minikube`:
+
+ 	```
+ 	minikube service jakartaee-cafe --url
+ 	```   
    
 ## Deleting the Resources
 * Delete the Jakartaee EE deployment:
@@ -100,8 +88,4 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Delete the Liberty Operator:
    ```
    kubectl delete -f openliberty-app-operator.yaml
-   ```
-* Delete the ingress controller namespace:
-   ```
-   kubectl delete namespace ingress-basic
    ```
