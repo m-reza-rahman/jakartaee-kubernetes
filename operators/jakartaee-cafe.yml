@@ -5,12 +5,12 @@ metadata:
   namespace: default
 spec:
   replicas: 2
-  applicationImage: rezarahman/jakartaee-cafe:v103
+  applicationImage: <your Docker Hub account>/jakartaee-cafe:v3
   env:
     - name: POSTGRES_SERVER
-      value: "jakartaee-cafe-db-reza.postgres.database.azure.com"        
+      value: "jakartaee-cafe-db-<your suffix>.postgres.database.azure.com"        
     - name: POSTGRES_USER
-      value: "postgres@jakartaee-cafe-db-reza"
+      value: "postgres@jakartaee-cafe-db-<your suffix>"
     - name: POSTGRES_PASSWORD
       value: "Secret123!"
   service:
