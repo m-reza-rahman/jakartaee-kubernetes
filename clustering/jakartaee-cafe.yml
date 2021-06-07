@@ -41,7 +41,7 @@ spec:
   selector:
     app: jakartaee-cafe
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: jakartaee-cafe
@@ -55,11 +55,17 @@ spec:
   rules:
   - http:
       paths:
-      - backend:
-          serviceName: jakartaee-cafe
-          servicePort: 80
-        path: /
-      - backend:
-          serviceName: jakartaee-cafe
-          servicePort: 443
-        path: /
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: jakartaee-cafe
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jakartaee-cafe
+            port:
+              number: 443
