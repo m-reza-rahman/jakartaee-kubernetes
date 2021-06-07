@@ -13,5 +13,6 @@ Factors demostrated include:
 The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
 
 ## To Do
+* Upgrade Liberty Operator scripts
 * Use Prometheus Operator?
 * Use Grafana Operator?
