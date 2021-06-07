@@ -36,7 +36,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Install the Custom Resource Definitions (CRDs) for Liberty by running the following command:
 
    ```
-   kubectl apply -f https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/master/deploy/releases/0.7.1/openliberty-app-crd.yaml
+   kubectl apply -f openliberty-app-crd.yaml
    ```
 * Install cluster-level role-based access for the Operator by running the following command:
 
