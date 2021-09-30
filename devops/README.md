@@ -46,7 +46,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
 * Go to Actions -> Workflows -> All workflows -> Main Build -> Run workflow -> Run workflow.
 * When the job finishes running, the application will be deployed to Kubernetes.
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/azure-cafe`:
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
 
    ```
    kubectl get svc jakartaee-cafe --watch
