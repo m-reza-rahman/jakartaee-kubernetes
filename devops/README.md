@@ -52,21 +52,3 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    kubectl get svc jakartaee-cafe --watch
    ```
   It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-
-## Create Service Connections
-* Clone this repository into your own GitHub account. Make sure to update the [devops/jakartaee-cafe/jakartaee-cafe.yml](jakartaee-cafe/jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>`, and `reza` with `<your suffix>` on GitHub.
-* Go to [Azure DevOps home](https://dev.azure.com).
-* Select your project. Click on project settings -> Pipelines -> Service connections -> Create service connection -> GitHub. Select Azure Pipelines as the OAuth configuration. Click authorize. Provide a connection name. Click save.
-* Select New service connection -> Docker Registry. Select Docker Hub as your registry type. Specify the connection name to be docker-hub-`<Your Docker Hub ID>`. Fill in your Docker ID, password and email. Click verify and save. 
-* Select New service connection -> Kubernetes. Select Azure subscription as your authentication. Select the namespace to be default. Select the cluster to be jakartaee-cafe-cluster-`<your suffix>`. Specify the connection name to be jakartaee-cafe-cluster. Click save.
-
-## Create and Run the Pipeline
-* Select pipelines. Click create pipeline. Select GitHub as source control. Select jakartaee-kubernetes from your own repository. Select existing Azure Pipelines YAML file. Select /devops/jakartaee-cafe/azure-pipelines.yml as the path. 
-
-* In the YAML file, replace occurrences of `rezarahman` with `<Your Docker Hub ID>`. When done, hit save and hit run.
-* When the job finishes running, the application will be deployed to Kubernetes.
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
-   ```
-   kubectl get svc jakartaee-cafe --watch
-   ```
-  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
