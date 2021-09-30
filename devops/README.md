@@ -39,7 +39,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    cat $HOME/.kube/config | base64
    ```
-* Clone this repository into your own GitHub account. Make sure to update the [jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
+* Clone this repository into your own GitHub account. Make sure to update the [jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
 * Go to Settings -> Secrets on your GitHub repository. 
 * Click 'New repository secret'. Specify the secret name to be 'KUBE_CONFIG'. The Value will be the Base64 encoded .kube/config output from earlier.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
