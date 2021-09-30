@@ -14,15 +14,7 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: delete -f azure-cafe.yml
-        continue-on-error: true
-        
-      - name: Create Application Insights Config Map
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-        with:
-          args: create configmap application-insights-key --from-literal=APPLICATION_INSIGHTS_KEY=${{ secrets.APPLICATION_INSIGHTS_KEY }}
+          args: delete -f jakartaee-cafe.yml
         continue-on-error: true
  
       - name: Set up Java
@@ -51,11 +43,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/azure-cafe:v1
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/jakartaee-cafe:v4
                       
       - name: Create Azure Cafe Deployment
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: create -f azure-cafe.yml
+          args: create -f jakartaee-cafe.yml
