@@ -34,7 +34,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
   
 ## Run GitHub Actions Workflow
-* Open a command line and execute the following command. Please save off the output for use shortly.
+* Open a command line and execute the following command on Linux or Mac. Please save off the output for use shortly.
  
    ```
    cat $HOME/.kube/config | base64
