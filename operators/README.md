@@ -52,7 +52,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Open Eclipse.
 * Get the operators version of the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select operators/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.19.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.23.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
 * You should also note the `server.xml`. We have added an admin role to access the adminstrative tool with.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
 * Log in to Docker Hub using the docker login command:
