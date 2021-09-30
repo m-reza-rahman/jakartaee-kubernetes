@@ -30,7 +30,27 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    az aks get-credentials --resource-group jakartaee-cafe-group-`<your suffix>` --name jakartaee-cafe-cluster-`<your suffix>`
    ```
-  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.  
+  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
+  
+## Run GitHub Actions Workflow
+* Open a command line and execute the following command. Please save off the output for use shortly.
+ 
+   ```
+   cat $HOME/.kube/config | base64
+   ```
+* Clone this repository into your own GitHub account. Make sure to update the [jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` on GitHub.
+* Go to Settings -> Secrets on your GitHub repository. 
+* Click 'New repository secret'. Specify the secret name to be 'KUBE_CONFIG'. The Value will be the Base64 encoded .kube/config output from earlier.
+* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
+* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
+* Go to Actions -> Workflows -> All workflows -> Main Build -> Run workflow -> Run workflow.
+* When the job finishes running, the application will be deployed to Kubernetes.
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/azure-cafe`:
+
+   ```
+   kubectl get svc jakartaee-cafe --watch
+   ```
+  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
 
 ## Create Service Connections
 * Clone this repository into your own GitHub account. Make sure to update the [devops/jakartaee-cafe/jakartaee-cafe.yml](jakartaee-cafe/jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>`, and `reza` with `<your suffix>` on GitHub.
