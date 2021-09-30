@@ -10,10 +10,9 @@ Factors demostrated include:
 * How to use Kubernetes Operators to more effectively manage application server clusters. The [operators](/operators) folder shows how this is done.
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
-The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and Azure DevOps Pipelines.
+The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and GitHub Actions.
 
 ## To Do
-* Move to GitHub Actions
 * Upgrade Liberty Operator scripts
 * Use Prometheus Operator?
 * Use Grafana Operator?
