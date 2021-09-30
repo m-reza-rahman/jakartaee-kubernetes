@@ -1,5 +1,5 @@
 # Effective Kubernetes for Jakarta EE and MicroProfile Developers
-This repository shows several key trade-offs to consider while using Kubernetes with Java EE, Jakarta EE and MicroProfile applications. The repository hosts the demos for [this](abstract.md) talk or [this](lab-abstract.md) lab. A video for the talk is available on [YouTube](https://www.youtube.com/watch?v=Q2jTk3-1Fdc).
+This repository shows several key trade-offs to consider while using Kubernetes with Java EE, Jakarta EE and MicroProfile applications. The repository hosts the demos for [this](abstract.md) talk or [this](lab-abstract.md) lab. The prerequistes for the lab are [here](prerequisites.md). A video for the talk is available on [YouTube](https://www.youtube.com/watch?v=Q2jTk3-1Fdc).
 
 The basic Jakarta EE application used throughout is in the [jakartaee](/jakartaee) folder. 
 
