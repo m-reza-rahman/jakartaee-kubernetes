@@ -39,18 +39,22 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    cat $HOME/.kube/config | base64
    ```
+  
+* On Windows PowerShell, you will need to enter the follwing commands. In the output, save off the text between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. 
+
+   ```
+   certutil -encode $HOME\.kube\config kube_config.txt
+   type kube_config.txt
+   del kube_config.txt   
+   ```
    
-* `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`.   
+* For the Windows Command Prompt, use the following.
    ```   
    certutil -encode %HOMEDRIVE%%HOMEPATH%\.kube\config kube_config.txt
    type kube_config.txt
    del kube_config.txt
    ```   
 
-   ```
-   certutil -encode $HOME\.kube\config kube_config.txt
-   ```   
-   
 * Clone this repository into your own GitHub account. Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
 * Go to Settings -> Secrets on your GitHub repository. 
 * Click 'New repository secret'. Specify the secret name to be 'KUBE_CONFIG'. The Value will be the Base64 encoded .kube/config output from earlier.
