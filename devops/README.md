@@ -41,7 +41,8 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    
    ```   
-   certutil -encode %HOMEDRIVE%%HOMEPATH%\.kube\config
+   certutil -encode %HOMEDRIVE%%HOMEPATH%\.kube\config kube_config.txt
+   type kube_config.txt
    ```   
    
 * Clone this repository into your own GitHub account. Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
