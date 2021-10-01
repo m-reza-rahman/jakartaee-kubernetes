@@ -40,7 +40,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    cat $HOME/.kube/config | base64
    ```
   
-* On Windows PowerShell, you will need to enter the follwing commands. In the output, save off the text between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. 
+* On Windows PowerShell, you will need to enter the following commands. In the output, save off the text between `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. 
 
    ```
    certutil -encode $HOME\.kube\config kube_config.txt
