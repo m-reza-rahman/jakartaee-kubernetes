@@ -40,6 +40,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    cat $HOME/.kube/config | base64
    ```
    
+* `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`.   
    ```   
    certutil -encode %HOMEDRIVE%%HOMEPATH%\.kube\config kube_config.txt
    type kube_config.txt
