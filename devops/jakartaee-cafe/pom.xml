@@ -23,6 +23,13 @@
 			<version>${jakartaee.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Required by Java SE 9+ -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
