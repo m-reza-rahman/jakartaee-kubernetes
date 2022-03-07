@@ -80,7 +80,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl delete -f jakartaee-cafe.yml
    ```
-* Delete the ingress controller namespace:
+* Delete the ingress controller:
    ```
    kubectl delete namespace ingress-basic
    ```
