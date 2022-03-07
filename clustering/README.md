@@ -35,13 +35,17 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
   
 ## Setup Ingress Controller
+* Create a namespace for your ingress resources by running the following command:
+   ```
+   kubectl create namespace ingress-basic
+   ```
 * Use Helm to deploy an NGINX ingress controller:
    ```
-   helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+   helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
    ```
 * Note down the external IP address of the Ingress controller/load-balancer when it becomes available (enter CTRL-C when done):
    ```
-   kubectl get services --watch
+   kubectl --namespace ingress-basic get services --watch
    ```   
 
 ## Deploy the Jakarta EE Application on Kubernetes
@@ -80,7 +84,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl delete -f jakartaee-cafe.yml
    ```
-* Delete the ingress controller:
+* Delete the ingress controller namespace:
    ```
    kubectl delete namespace ingress-basic
    ```
