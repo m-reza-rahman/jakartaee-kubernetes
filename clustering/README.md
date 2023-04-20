@@ -35,6 +35,12 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
   
 ## Setup Ingress Controller
+* Make sure to update Helm:
+   ```
+   helm repo add stable https://charts.helm.sh/stable
+   helm repo update
+   ``
+
 * Create a namespace for your ingress resources by running the following command:
    ```
    kubectl create namespace ingress-basic
