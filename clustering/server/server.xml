@@ -23,14 +23,14 @@
 		encode and add it in the password attribute of the user element. Then uncomment 
 		the user element. -->
 	<basicRegistry id="basic" realm="BasicRealm">
-		<user name="admin" password="admin123" />
+		<user name="admin" password="password" />
 	</basicRegistry>
 	
 	<administrator-role>
 		<user>admin</user>
 	</administrator-role>	
 
-	<keyStore id="defaultKeyStore" password="admin123" />
+	<keyStore id="defaultKeyStore" password="password" />
 
 	<!-- To access this server from a remote client add a host attribute to 
 		the following element, e.g. host="*" -->
@@ -60,6 +60,6 @@
 
 	<library id="postgresql-library">
 		<fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
-			includes="postgresql-42.2.23.jar" />
+			includes="postgresql-42.6.0.jar" />
 	</library>	
 </server>
