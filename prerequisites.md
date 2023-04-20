@@ -1,6 +1,6 @@
 # Lab Prerequisite Setup
 
-* Install JDK 17 (we used [Eclipse Temurin OpenJDK 17 LTS](https://adoptium.net/?variant=openjdk17)).
+* Install JDK 17 (we used [Eclipse Temurin OpenJDK 17 LTS](https://adoptium.net/temurin/releases/?version=17)).
 * Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Install Docker for your OS.
 * You will need a GitHub account.
