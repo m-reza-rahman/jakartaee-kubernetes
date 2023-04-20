@@ -39,7 +39,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    helm repo add stable https://charts.helm.sh/stable
    helm repo update
-   ``
+   ```
 
 * Create a namespace for your ingress resources by running the following command:
    ```
