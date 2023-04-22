@@ -37,7 +37,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 ## Setup Ingress Controller
 * Make sure to update Helm:
    ```
-   helm repo add nginx-stable https://helm.nginx.com/stable
+   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    helm repo update
    ```
 
