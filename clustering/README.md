@@ -47,7 +47,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
 * Use Helm to deploy an NGINX ingress controller:
    ```
-   helm install nginx-ingress nginx-stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+   helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux
    ```
 * Note down the external IP address of the Ingress controller/load-balancer when it becomes available (enter CTRL-C when done):
    ```
