@@ -39,8 +39,8 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Select Azure Active Directory -> App registrations -> New registration. For the name specify jakartaee-cafe-registration-`<your suffix>` (the suffix could be your first name such as "reza"). Click register.
 * Select 'Certificates & secrets' in the left nav pane, select the 'Federated credentials' tab, and select 'Add credential'.
 * In the 'Federated credential scenario' drop-down box, select 'GitHub actions deploying Azure resources'.
-* Set the GitHub organization name (typically this is just your user name) and your repository name.
-* For entity type select branch and set the branch name to 'master'.
+* Set the GitHub organization name (typically this is just your user name) and your repository name. For entity type select branch and set the branch name to 'master'. For the name of the federated credential, specify 'JakartaEECafe'. Click add.
+* Go to the overview panel. Note down the application/client ID and tenant ID. 
 
 ## Run GitHub Actions Workflow
 * Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
