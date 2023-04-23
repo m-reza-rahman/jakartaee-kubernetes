@@ -42,12 +42,15 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Set the GitHub organization name (typically this is just your user name) and your repository name. For entity type select branch and set the branch name to 'master'. For the name of the federated credential, specify 'JakartaEECafe'. Click add.
 * Go to the overview panel. Note down the application/client ID and directory/tenant ID.
 * Go to the portal home. Go to your subscription. Note down the subscription ID.
+* Go to Settings -> Secrets on your GitHub repository.
+* Click 'New repository secret'. Specify the secret name to be 'AZURE_CLIENT_ID'. The Value will be the client ID from above.
+* Click 'New repository secret'. Specify the secret name to be 'AZURE_TENANT_ID'. The Value will be the tenant ID from above.
+* Click 'New repository secret'. Specify the secret name to be 'AZURE_SUBSCRIPTION_ID'. The Value will be the subscription ID from above.
+* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
+* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
 
 ## Run GitHub Actions Workflow
 * Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
-* Go to Settings -> Secrets on your GitHub repository. 
-* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
-* Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
 * Go to Actions -> Workflows -> All workflows -> Main Build -> Run workflow -> Run workflow.
 * When the job finishes running, the application will be deployed to Kubernetes.
 * Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
