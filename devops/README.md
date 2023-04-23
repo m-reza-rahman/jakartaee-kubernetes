@@ -39,7 +39,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Select Azure Active Directory -> App registrations -> New registration. For the name specify jakartaee-cafe-registration-`<your suffix>` (the suffix could be your first name such as "reza"). Click register.
 * Select 'Certificates & secrets' in the left nav pane, select the 'Federated credentials' tab, and select 'Add credential'.
 * In the 'Federated credential scenario' drop-down box, select 'GitHub actions deploying Azure resources'.
-* Set the GitHub organization name (typically this is just your user name) to be and your repository name.
+* Set the GitHub organization name (typically this is just your user name) and your repository name.
 * For entity type select branch and set the branch name to 'master'.
 
 ## Run GitHub Actions Workflow
