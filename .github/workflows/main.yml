@@ -2,17 +2,27 @@ name: Main Build
 
 on:
   workflow_dispatch:
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-              
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - uses: azure/aks-set-context@v3
+        with:
+          resource-group: jakartaee-cafe-group-reza
+          cluster-name: jakartaee-cafe-cluster-reza      
+
       - name: Delete Jakarta EE Cafe Deployment
         uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
           args: delete -f devops/jakartaee-cafe.yml
         continue-on-error: true
@@ -47,7 +57,5 @@ jobs:
                       
       - name: Create Azure Cafe Deployment
         uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
           args: create -f devops/jakartaee-cafe.yml
