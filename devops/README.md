@@ -64,9 +64,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```   
 
 * Go to Settings -> Secrets on your GitHub repository.
-* Click 'New repository secret'. Specify the secret name to be 'AZURE_CLIENT_ID'. The Value will be the client ID from above.
-* Click 'New repository secret'. Specify the secret name to be 'AZURE_TENANT_ID'. The Value will be the tenant ID from above.
-* Click 'New repository secret'. Specify the secret name to be 'AZURE_SUBSCRIPTION_ID'. The Value will be the subscription ID from above.
+* Click 'New repository secret'. Specify the secret name to be 'AZURE_CREDENTIALS'. The Value will be the service principal JSON from above.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
 
