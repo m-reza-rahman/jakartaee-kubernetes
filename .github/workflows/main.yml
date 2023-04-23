@@ -16,12 +16,11 @@ jobs:
       - uses: azure/aks-set-context@v3
         with:
           resource-group: jakartaee-cafe-group-reza
-          cluster-name: jakartaee-cafe-cluster-reza      
+          cluster-name: jakartaee-cafe-cluster-reza
+      - uses: azure/setup-kubectl@v3
 
       - name: Delete Jakarta EE Cafe Deployment
-        uses: actions-hub/kubectl@master
-        with:
-          args: delete -f devops/jakartaee-cafe.yml
+        run: kubectl delete -f devops/jakartaee-cafe.yml
         continue-on-error: true
  
       - name: Set up Java
@@ -53,6 +52,4 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/jakartaee-cafe:v4
                       
       - name: Create Azure Cafe Deployment
-        uses: actions-hub/kubectl@master
-        with:
-          args: create -f devops/jakartaee-cafe.yml
+        run: kubectl create -f devops/jakartaee-cafe.yml
