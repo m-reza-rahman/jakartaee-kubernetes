@@ -43,6 +43,14 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the overview panel. Note down the application/client ID and directory/tenant ID.
 * Go to the portal home. Go to your subscription. Note down the subscription ID.
 * Go to Access control (IAM) -> Add -> Add role assignment -> Members. For the role, select 'Contributor'. Switch to the 'Members' tab. Click 'Select members'. In the search box type and select jakartaee-cafe-registration-`<your suffix>`. Click select. Click 'Review + assign'.
+
+* * Go to the [Azure portal](http://portal.azure.com). Go to your subscription. Note down the subscription ID.
+* Create a new service principal by executing the following command:
+
+   ```
+   az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/`<your subscription ID>`/resourceGroups/jakartaee-cafe-group-`<your suffix>` --sdk-auth
+   ```
+
 * Go to Settings -> Secrets on your GitHub repository.
 * Click 'New repository secret'. Specify the secret name to be 'AZURE_CLIENT_ID'. The Value will be the client ID from above.
 * Click 'New repository secret'. Specify the secret name to be 'AZURE_TENANT_ID'. The Value will be the tenant ID from above.
