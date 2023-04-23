@@ -35,23 +35,13 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 
 ## Set Up GitHub Actions Access
 * Clone this repository into your own GitHub account.
-* Go to the [Azure portal](http://portal.azure.com).
-* Select Azure Active Directory -> App registrations -> New registration. For the name specify jakartaee-cafe-registration-`<your suffix>` (the suffix could be your first name such as "reza"). Click register.
-* Select 'Certificates & secrets' in the left nav pane, select the 'Federated credentials' tab, and select 'Add credential'.
-* In the 'Federated credential scenario' drop-down box, select 'GitHub actions deploying Azure resources'.
-* Set the GitHub organization name (typically this is just your user name) and your repository name (likely 'jakartaee-kubernetes'). For entity type select branch and set the branch name to 'master'. For the name of the federated credential, specify 'JakartaEECafe'. Click add.
-* Go to the overview panel. Note down the application/client ID and directory/tenant ID.
-* Go to the portal home. Go to your subscription. Note down the subscription ID.
-* Go to Access control (IAM) -> Add -> Add role assignment -> Members. For the role, select 'Contributor'. Switch to the 'Members' tab. Click 'Select members'. In the search box type and select jakartaee-cafe-registration-`<your suffix>`. Click select. Click 'Review + assign'.
-
-* Go to the [Azure portal](http://portal.azure.com). Go to your subscription. Note down the subscription ID.
-* Create a new service principal by executing the following command:
+* Go to the [Azure portal](http://portal.azure.com). Go to the subscription you are using. Note down the subscription ID.
+* Create a new Azure service principal by executing the following command:
 
    ```
    az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/<your subscription ID>/resourceGroups/jakartaee-cafe-group-<your suffix> --sdk-auth
    ```
-   
-* Copy the JSON object for your service principal:
+* Copy and save aside the JSON object for your service principal:
 
    ```json
    {
@@ -61,8 +51,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
        "tenantId": "<GUID>",
        (...)
    }  
-   ```   
-
+   ```
 * Go to Settings -> Secrets on your GitHub repository.
 * Click 'New repository secret'. Specify the secret name to be 'AZURE_CREDENTIALS'. The Value will be the service principal JSON from above.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
@@ -70,6 +59,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 
 ## Run GitHub Actions Workflow
 * Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
+* Similarly, make sure to update the [.github/workflows/main.yml](../.github/workflows/main.yml) file to replace occurrences of `reza` with `<your suffix>`  on GitHub.
 * Go to Actions -> Workflows -> All workflows -> Main Build -> Run workflow -> Run workflow.
 * When the job finishes running, the application will be deployed to Kubernetes.
 * Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
