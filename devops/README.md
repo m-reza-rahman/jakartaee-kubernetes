@@ -34,7 +34,8 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
 ## Run GitHub Actions Workflow
-
+* Go to the [Azure portal](http://portal.azure.com).
+* Select Azure Active Directory -> App registrations -> New registration. For the name specify jakartaee-cafe-registration-`<your suffix>` (the suffix could be your first name such as "reza").
 * Clone this repository into your own GitHub account. Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
 * Go to Settings -> Secrets on your GitHub repository. 
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
