@@ -37,21 +37,21 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 ## Setup Ingress Controller
 * Make sure to update Helm:
    ```
-   helm repo add nginx-stable https://helm.nginx.com/stable
+   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    helm repo update
    ```
 
 * Create a namespace for your ingress resources by running the following command:
    ```
-   kubectl create namespace ingress-basic
+   kubectl create namespace ingress-nginx
    ```
 * Use Helm to deploy an NGINX ingress controller:
    ```
-   helm install nginx-ingress nginx-stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set controller.nodeSelector."kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux
+   helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --set controller.replicaCount=2 --set controller.nodeSelector."kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
    ```
 * Note down the external IP address of the Ingress controller/load-balancer when it becomes available (enter CTRL-C when done):
    ```
-   kubectl --namespace ingress-basic get services --watch
+   kubectl --namespace ingress-nginx get services --watch
    ```   
 
 ## Deploy the Jakarta EE Application on Kubernetes
