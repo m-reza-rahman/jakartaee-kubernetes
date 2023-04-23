@@ -44,7 +44,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the portal home. Go to your subscription. Note down the subscription ID.
 * Go to Access control (IAM) -> Add -> Add role assignment -> Members. For the role, select 'Contributor'. Switch to the 'Members' tab. Click 'Select members'. In the search box type and select jakartaee-cafe-registration-`<your suffix>`. Click select. Click 'Review + assign'.
 
-* * Go to the [Azure portal](http://portal.azure.com). Go to your subscription. Note down the subscription ID.
+* Go to the [Azure portal](http://portal.azure.com). Go to your subscription. Note down the subscription ID.
 * Create a new service principal by executing the following command:
 
    ```
