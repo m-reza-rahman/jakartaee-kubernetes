@@ -29,7 +29,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
 
    ```
-   az aks get-credentials --resource-group jakartaee-cafe-group-`<your suffix>` --name jakartaee-cafe-cluster-`<your suffix>`
+   az aks get-credentials --resource-group jakartaee-cafe-group-<your suffix> --name jakartaee-cafe-cluster-<your suffix>
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
@@ -48,7 +48,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Create a new service principal by executing the following command:
 
    ```
-   az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/`<your subscription ID>`/resourceGroups/jakartaee-cafe-group-`<your suffix>` --sdk-auth
+   az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/<your subscription ID>/resourceGroups/jakartaee-cafe-group-<your suffix> --sdk-auth
    ```
 
 * Go to Settings -> Secrets on your GitHub repository.
