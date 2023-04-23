@@ -50,6 +50,18 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/<your subscription ID>/resourceGroups/jakartaee-cafe-group-<your suffix> --sdk-auth
    ```
+   
+* Copy the JSON object for your service principal:
+
+   ```json
+   {
+       "clientId": "<GUID>",
+       "clientSecret": "<GUID>",
+       "subscriptionId": "<GUID>",
+       "tenantId": "<GUID>",
+       (...)
+   }  
+   ```   
 
 * Go to Settings -> Secrets on your GitHub repository.
 * Click 'New repository secret'. Specify the secret name to be 'AZURE_CLIENT_ID'. The Value will be the client ID from above.
