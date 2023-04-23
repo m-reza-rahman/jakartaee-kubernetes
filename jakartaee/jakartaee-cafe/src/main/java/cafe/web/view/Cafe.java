@@ -31,12 +31,13 @@ public class Cafe implements Serializable {
   private static final Logger logger =
       Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
 
-  private String baseUri;
-  private transient Client client;
+  private String baseUri = null;
+  private transient Client client = ClientBuilder.newClient();
 
-  @NotNull @NotEmpty protected String name;
-  @NotNull protected Double price;
-  protected List<Coffee> coffeeList;
+  @NotNull @NotEmpty protected String name = null;
+  @NotNull protected Double price = null;
+  
+  protected List<Coffee> coffeeList = null;
 
   public String getName() {
     return name;
@@ -74,7 +75,6 @@ public class Cafe implements Serializable {
               + ":"
               + FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort()
               + "/jakartaee-cafe/rest/coffees";
-      this.client = ClientBuilder.newClient();
       this.getAllCoffees();
     } catch (IllegalArgumentException
         | NullPointerException
