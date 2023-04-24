@@ -52,12 +52,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    kubectl apply -f openliberty-app-operator.yaml
    ```
 ## Deploy the Jakarta EE Application on Kubernetes
-* Browse to where you have this repository code in your file system. Go into the operators/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
+* Open a terminal. Navigate to where you have this repository code in your file system. Go into the operators/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
    mvn clean package
    ```
 * Go back to the operators/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
 * Log in to Docker Hub using the docker login command:
    ```
    docker login
