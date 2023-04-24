@@ -56,8 +56,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    kubectl create -f jakartaee-cafe.yml
    ```
-
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
+* Wait for all the pods to be ready and running:
+   ```
+   kubectl get pods --watch
+   ```
+* Get the External IP address of the service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
    ```
    kubectl get svc jakartaee-cafe --watch
    ```
