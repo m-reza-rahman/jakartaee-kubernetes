@@ -4,6 +4,7 @@ This demo will show how to make Kubernetes liveness/readiness probes and monitor
 
 ## Prerequisites
 
+- You will need to have [Maven installed](https://maven.apache.org/install.html).
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform including running Kubernetes locally.
 - You need to have Docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
@@ -34,10 +35,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory. 
 
 ## Deploy the Jakarta EE Application on Kubernetes
-* Open Eclipse.
-* Get the monitoring version of the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select monitoring/jakartaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.23.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* Browse to where you have this repository code in your file system. Go into the monitoring/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
+   ```
+   mvn clean package
+   ```
+* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
 * You should note the `server.xml`. We have enabled both MicroProfile Health and Metrics.
 * You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
