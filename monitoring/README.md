@@ -39,7 +39,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    mvn clean package
    ```
-* You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* Go back to the monitoring/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
 * You should note the `server.xml`. We have enabled both MicroProfile Health and Metrics.
 * You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
