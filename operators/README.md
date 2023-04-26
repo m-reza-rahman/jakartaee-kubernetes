@@ -78,5 +78,5 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
 * Delete the Liberty Operator:
    ```
-   kubectl delete -f openliberty-app-operator.yaml
+   kubectl delete -k overlays/watch-all-namespaces
    ```
