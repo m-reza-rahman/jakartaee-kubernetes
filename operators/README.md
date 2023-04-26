@@ -33,26 +33,15 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    az aks get-credentials --resource-group jakartaee-cafe-group-<your suffix> --name jakartaee-cafe-cluster-<your suffix>
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
-  
-## Set Up the Liberty Operator
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
-* Install the Custom Resource Definitions (CRDs) for Liberty by running the following command:
 
-   ```
-   kubectl apply -f openliberty-app-crd.yaml
-   ```
-* Install cluster-level role-based access for the Operator by running the following command:
-
-   ```
-   kubectl apply -f openliberty-app-cluster-rbac.yaml
-   ```
-* Install the operator itself by running the following command:
-
-   ```
-   kubectl apply -f openliberty-app-operator.yaml
-   ```
 ## Deploy the Jakarta EE Application on Kubernetes
-* Open a terminal. Navigate to where you have this repository code in your file system. Go into the operators/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
+
+* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
+* Install the operator by running the following command:
+   ```
+   kubectl apply -k overlays/watch-all-namespaces
+   ```
+* Go into the operators/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
    mvn clean package
    ```
