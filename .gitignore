@@ -28,8 +28,6 @@ hs_err_pid*
 .idea
 .DS_Store
 .war
-javaee/javaee-cafe-demo/nb-configuration.xml
-uber-jar/javaee-cafe/.classpath
-uber-jar/javaee-cafe/.settings/
-kubernetes-devops/javaee-cafe/.classpath
-kubernetes-devops/javaee-cafe/.settings/
+operators/base/
+operators/overlays/
+

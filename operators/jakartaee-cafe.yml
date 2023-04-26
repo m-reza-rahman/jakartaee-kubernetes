@@ -2,7 +2,6 @@ apiVersion: openliberty.io/v1beta1
 kind: OpenLibertyApplication
 metadata:
   name: jakartaee-cafe
-  namespace: default
 spec:
   replicas: 2
   applicationImage: <your Docker Hub account>/jakartaee-cafe:v3
