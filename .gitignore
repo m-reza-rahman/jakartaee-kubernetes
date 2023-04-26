@@ -28,6 +28,3 @@ hs_err_pid*
 .idea
 .DS_Store
 .war
-operators/base/
-operators/overlays/
-
