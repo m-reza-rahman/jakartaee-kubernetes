@@ -39,7 +39,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Create a new Azure service principal by executing the following command:
 
    ```
-   az ad sp create-for-rbac --name "jakartaee-cafe-application" --role contributor --scopes /subscriptions/<your subscription ID>/resourceGroups/jakartaee-cafe-group-<your suffix> --sdk-auth
+   az ad sp create-for-rbac --name "jakartaee-cafe-principal" --role contributor --scopes /subscriptions/<your subscription ID>/resourceGroups/jakartaee-cafe-group-<your suffix> --sdk-auth
    ```
 * Copy and save aside the JSON object for your service principal:
 
