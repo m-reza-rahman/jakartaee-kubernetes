@@ -13,7 +13,7 @@ Factors demostrated include:
 The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS) and GitHub Actions.
 
 ## To Do
-* Add optional local verification
+* Add optional local verification step
 * Add CRIU?
 * Use Prometheus Operator?
 * Use Grafana Operator?
