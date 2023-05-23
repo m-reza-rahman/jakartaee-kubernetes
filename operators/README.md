@@ -72,7 +72,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
  	```   
    
 ## Deleting the Resources
-* Delete the Jakartaee EE deployment:
+* Delete the Jakarta EE deployment:
    ```
    kubectl delete -f jakartaee-cafe.yml
    ```
