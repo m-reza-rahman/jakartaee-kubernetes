@@ -3,7 +3,7 @@ The following are the setup instructions for the lab (do look at the diferent op
 
 * Please bring your laptop and ensure a reliable internet connection.
 * Install JDK 17 (we used [Eclipse Temurin OpenJDK 17 LTS](https://adoptium.net/temurin/releases/?version=17)).
-* Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
+* Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 * Install Docker for your OS.
 * You will need a GitHub account.
