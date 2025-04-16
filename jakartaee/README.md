@@ -1,7 +1,7 @@
 # Basic Jakarta EE CRUD Application
-This is the basic Jakarta EE 8 application used throughout the Kubernetes demos. It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, enterprise beans, CDI, Persistence, Faces, Bean Validation).
+This is the basic Jakarta EE 10 application used throughout the Kubernetes demos. It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, Faces, Bean Validation).
 
-We use Eclipse but you can use any Maven capable IDE such as IntelliJ or Visual Studio Code. We use WebSphere Liberty but you should be able to use any Jakarta EE 8 compatiple application server such as Open Liberty, WildFly, JBoss EAP or Payara. We use PostgreSQL but you can use any relational database such as MySQL.
+We use Eclipse IDE but you can use any Maven capable IDE/editor such as IntelliJ or Visual Studio Code. We use Open Liberty but you should be able to use any Jakarta EE 10 compatiple application server such as WebSphere Liberty, WildFly, JBoss EAP, GlasFish, or Payara. We use PostgreSQL but you can use any relational database such as MySQL, SQL Server, or Oracle DB.
 
 ## Setup
 
