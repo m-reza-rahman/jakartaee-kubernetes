@@ -15,5 +15,3 @@ The demos use Jakarta EE 8, WebSphere Liberty, PostgreSQL, Azure Kubernetes Serv
 ## To Do
 * Add optional local verification step.
 * Add CRIU?
-* Use Prometheus Operator?
-* Use Grafana Operator?
