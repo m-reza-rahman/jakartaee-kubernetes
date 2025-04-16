@@ -39,6 +39,51 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.4.0</version>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>org.postgresql</groupId>
+                            <artifactId>postgresql</artifactId>
+                            <version>42.7.5</version>
+                            <overWrite>true</overWrite>
+                            <outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources</outputDirectory>
+                            <destFileName>postgresql.jar</destFileName>
+                        </artifactItem>
+                    </artifactItems>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.openliberty.tools</groupId>
+                <artifactId>liberty-maven-plugin</artifactId>
+                <version>3.11.3</version>
+                <executions>
+                    <execution>
+                        <id>package-server</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>create</goal>
+                            <goal>install-feature</goal>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <libertyRuntimeVersion>23.0.0.9</libertyRuntimeVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 </project>
