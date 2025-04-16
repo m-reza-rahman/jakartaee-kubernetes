@@ -79,7 +79,7 @@
                             <goal>deploy</goal>
                         </goals>
                         <configuration>
-                            <libertyRuntimeVersion>23.0.0.9</libertyRuntimeVersion>
+                            <libertyRuntimeVersion>25.0.0.3</libertyRuntimeVersion>
                         </configuration>
                     </execution>
                 </executions>
