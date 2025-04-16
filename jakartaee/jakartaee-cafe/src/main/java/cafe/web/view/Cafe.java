@@ -1,109 +1,83 @@
 package cafe.web.view;
 
+import java.io.IOException;
 import java.io.Serializable;
-import java.lang.invoke.MethodHandles;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.List;
-import java.util.logging.Logger;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
 
 import cafe.model.entity.Coffee;
+import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
+import jakarta.inject.Named;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
 
 @Named
 @SessionScoped
 public class Cafe implements Serializable {
 
-  private static final long serialVersionUID = 1L;
-  private static final Logger logger =
-      Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
+	private static final long serialVersionUID = 1L;
 
-  private String baseUri = null;
-  private transient Client client = ClientBuilder.newClient();
+	private transient String baseUri;
+	private transient Client client;
 
-  @NotNull @NotEmpty protected String name = null;
-  @NotNull protected Double price = null;
-  
-  protected List<Coffee> coffeeList = null;
+	@NotBlank
+	private String name;
+	@NotNull
+	@PositiveOrZero
+	private Number price;
 
-  public String getName() {
-    return name;
-  }
+	public String getName() {
+		return name;
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  public Double getPrice() {
-    return price;
-  }
+	public Number getPrice() {
+		return price;
+	}
 
-  public void setPrice(Double price) {
-    this.price = price;
-  }
+	public void setPrice(Number price) {
+		this.price = price;
+	}
 
-  public List<Coffee> getCoffeeList() {
-    return coffeeList;
-  }
+	@PostConstruct
+	private void init() {
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+				.getRequest();
+		baseUri = "http://localhost:9080" + request.getContextPath() + "/rest/coffees";
+		client = ClientBuilder.newBuilder().build();
+	}
 
-  @PostConstruct
-  private void init() {
-    try {
-      InetAddress inetAddress =
-          InetAddress.getByName(
-              ((HttpServletRequest)
-                      FacesContext.getCurrentInstance().getExternalContext().getRequest())
-                  .getServerName());
+	public List<Coffee> getCoffeeList() {
+		return client.target(baseUri).path("/").request(MediaType.APPLICATION_JSON)
+				.get(new GenericType<List<Coffee>>() {
+				});
+	}
 
-      baseUri =
-          FacesContext.getCurrentInstance().getExternalContext().getRequestScheme()
-              + "://"
-              + inetAddress.getHostName()
-              + ":"
-              + FacesContext.getCurrentInstance().getExternalContext().getRequestServerPort()
-              + "/jakartaee-cafe/rest/coffees";
-      this.getAllCoffees();
-    } catch (IllegalArgumentException
-        | NullPointerException
-        | WebApplicationException
-        | UnknownHostException ex) {
-      logger.severe("Processing of HTTP response failed.");
-      ex.printStackTrace();
-    }
-  }
+	public void addCoffee() throws IOException {
+		Coffee coffee = new Coffee(this.name, this.price.doubleValue());
+		client.target(baseUri).request(MediaType.APPLICATION_JSON).post(Entity.json(coffee));
+		FacesContext.getCurrentInstance().getExternalContext().redirect("");
+	}
 
-  private void getAllCoffees() {
-    this.coffeeList =
-        this.client
-            .target(this.baseUri)
-            .path("/")
-            .request(MediaType.APPLICATION_JSON)
-            .get(new GenericType<List<Coffee>>() {});
-  }
+	public void removeCoffee(String coffeeId) throws IOException {
+		client.target(baseUri).path(coffeeId).request().delete();
+		FacesContext.getCurrentInstance().getExternalContext().redirect("");
+	}
 
-  public void addCoffee() {
-    Coffee coffee = new Coffee(this.name, this.price);
-    this.client.target(baseUri).request(MediaType.APPLICATION_JSON).post(Entity.json(coffee));
-    this.name = null;
-    this.price = null;
-    this.getAllCoffees();
-  }
-
-  public void removeCoffee(String coffeeId) {
-    this.client.target(baseUri).path(coffeeId).request().delete();
-    this.getAllCoffees();
-  }
+	// This method is called after de-serialization to initialize transient fields.
+	private Object readResolve() {
+		init();
+		return this;
+	}
 }

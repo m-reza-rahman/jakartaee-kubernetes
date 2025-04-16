@@ -8,12 +8,14 @@
 	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>
-	<description>This is the basic Jakarta EE application used throughout the Kubernetes demos.
-        It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, Jakarta Enterprise Beans, 
-        Jakarta Context and Dependency Injection, Jakarta Persistence, Jakarta Faces, Jakarta Bean Validation). 
+	<description>
+	    This is the basic Jakarta EE application used throughout the Kubernetes demos.
+        It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, 
+        Faces, Validation).
     </description>
 	<properties>
-		<jakartaee.api.version>8.0.0</jakartaee.api.version>
+	    <maven.compiler.release>17</maven.compiler.release>
+		<jakartaee.api.version>10.0.0</jakartaee.api.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
@@ -23,14 +25,6 @@
 			<version>${jakartaee.api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- Required for Java SE 9+ -->
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>2.3.3</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -38,19 +32,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
-				<inherited>true</inherited>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+				<version>3.14.0</version>
 			</plugin>
 			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.2</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
+				<version>3.4.0</version>
 			</plugin>
 		</plugins>
 	</build>
