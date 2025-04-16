@@ -10,7 +10,7 @@ Factors demostrated include:
 * How to use Kubernetes Operators to more effectively manage application server clusters. The [operators](/operators) folder shows how this is done.
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
-The demos use Jakarta EE 10, Open Liberty, PostgreSQL, Azure Kubernetes Service (AKS), and GitHub Actions.
+The demos use Jakarta EE 10, WebSphere Liberty, PostgreSQL, Azure Kubernetes Service (AKS), and GitHub Actions.
 
 ## To Do
 * Add optional local verification step.
