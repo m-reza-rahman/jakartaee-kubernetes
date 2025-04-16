@@ -1,7 +1,7 @@
 # Basic Jakarta EE CRUD Application
-This is the basic Jakarta EE 8 application used throughout the Kubernetes demos. It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, enterprise beans, CDI, Persistence, Faces, Bean Validation).
+This is the basic Jakarta EE 10 application used throughout the Kubernetes demos. It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, Faces, Bean Validation).
 
-We use Eclipse but you can use any Maven capable IDE such as IntelliJ or Visual Studio Code. We use WebSphere Liberty but you should be able to use any Jakarta EE 8 compatiple application server such as Open Liberty, WildFly, JBoss EAP or Payara. We use PostgreSQL but you can use any relational database such as MySQL.
+We use Eclipse IDE but you can use any Maven capable IDE/editor such as IntelliJ or Visual Studio Code. We use WebSphere Liberty but you should be able to use any Jakarta EE 10 compatiple application server such as Open Liberty, WildFly, JBoss EAP, GlasFish, or Payara. We use PostgreSQL but you can use any relational database such as MySQL, SQL Server, or Oracle DB.
 
 ## Setup
 
@@ -21,9 +21,9 @@ docker run -it --rm -e POSTGRES_HOST_AUTH_METHOD=trust --name jakartaee-cafe-db 
 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
-* Start Eclipse.
+* Start Eclipse IDE.
 * Go to the 'Servers' panel, right click. Select New -> Server -> IBM -> WebSphere Application Server Liberty Extended Tools. Click Next. Accept the license agreement, click Finish.
-* After the Eclipse WebSphere Liberty adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> IBM -> Liberty Server. Click Next. Select "Install from an archive or a repository". Click Next. Enter the destination path to install WebSphere Liberty. Select "Download and install a new runtime environment from ibm.com". Choose the "WAS Liberty with Java EE 8 Full Platform" option. Click next. Install the Java EE 8 Full Platform Bundle. Click Next. Accept the license agreement and click Next. Click Finish. When you are done, WebSphere Liberty will be set up in Eclipse.
+* After the Eclipse WebSphere Liberty adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> IBM -> Liberty Server. Click Next. Select "Install from an archive or a repository". Click Next. Enter the destination path to install WebSphere Liberty. Select "Download and install a new runtime environment from ibm.com". Choose the "WebSphere Liberty with Jakarta EE 10 Full Platform" option. Click next. Install the Jakarta EE 10 Full Platform Bundle. Click Next. Accept the license agreement and click Next. Click Finish. When you are done, WebSphere Liberty will be set up in Eclipse.
 * Find out where Eclipse has installed WebSphere Liberty in your file system. In the Servers panel, double click to open the WebSphere Liberty configuration. Click on Runtime Environment. Note the installation path.
 * Browse to where you have this repository code in your file system. You will need to copy the server.xml and PostgreSQL driver to the WebSphere install location. Both of these files are located under jakartaee/server. Copy the PostgreSQL driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
 * Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
