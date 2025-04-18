@@ -1,51 +1,55 @@
 <server description="defaultServer">
 
-  <!-- Enable features -->
-  <featureManager>
-    <feature>javaee-8.0</feature>
-  </featureManager>
+    <!-- Enable features -->
+    <featureManager>
+        <!--
+        <feature>cdi-4.0</feature>
+        <feature>jsonb-3.0</feature>
+        <feature>faces-4.0</feature>
+        <feature>restfulWS-3.1</feature>
+        <feature>enterpriseBeansLite-4.0</feature>
+        <feature>persistence-3.1</feature>
+        -->
+        <feature>jakartaee-10.0</feature>
+    </featureManager>
 
-  <!-- This template enables security. To get the full use of all the capabilities, 
-		a keystore and user registry are required. -->
+    <!-- This template enables security. To get the full use of all the capabilities, 
+        a keystore and user registry are required. -->
 
-  <!-- For the keystore, default keys are generated and stored in a keystore. 
-		To provide the keystore password, generate an encoded password using bin/securityUtility 
-		encode and add it below in the password attribute of the keyStore element. 
-		Then uncomment the keyStore element. -->
-  <!-- <keyStore password=""/> -->
+    <!-- For the keystore, default keys are generated and stored in a keystore. To 
+        provide the keystore password, generate an encoded password using bin/securityUtility 
+        encode and add it below in the password attribute of the keyStore element. Then uncomment 
+        the keyStore element. -->
+    <keyStore id="defaultKeyStore" password="password" />
 
-  <!--For a user registry configuration, configure your user registry. For 
-		example, configure a basic user registry using the basicRegistry element. 
-		Specify your own user name below in the name attribute of the user element. 
-		For the password, generate an encoded password using bin/securityUtility 
-		encode and add it in the password attribute of the user element. Then uncomment 
-		the user element. -->
-  <basicRegistry id="basic" realm="BasicRealm">
-    <user name="admin" password="password" />
-  </basicRegistry>
+    <!--For a user registry configuration, configure your user registry. For example, 
+        configure a basic user registry using the basicRegistry element. Specify your own 
+        user name below in the name attribute of the user element. For the password, generate 
+        an encoded password using bin/securityUtility encode and add it in the password attribute 
+        of the user element. Then uncomment the user element. -->
+    <basicRegistry id="basic" realm="BasicRealm">
+        <user name="admin" password="password" />
+    </basicRegistry>
 
-  <keyStore id="defaultKeyStore" password="password" />
+    <!-- To access this server from a remote client add a host attribute to the following 
+        element, e.g. host="*" -->
+    <httpEndpoint host="*" httpPort="9080" id="defaultHttpEndpoint" />
 
-  <httpEndpoint host="*" httpPort="9080" protocolVersion="http/1.1" id="defaultHttpEndpoint" />
+    <dataSource id="JakartaEECafeDB"
+        jdbcDriverRef="postgresql-driver" jndiName="jdbc/JakartaEECafeDB"
+        transactional="true" type="javax.sql.ConnectionPoolDataSource">
+        <properties databaseName="postgres"
+	    password="${env.POSTGRES_PASSWORD}" portNumber="5432"
+	    serverName="${env.POSTGRES_SERVER}" user="${env.POSTGRES_USER}" />
+    </dataSource>
 
-  <!-- Automatically expand WAR files and EAR files -->
-  <applicationManager autoExpand="true" />
+    <jdbcDriver id="postgresql-driver"
+        javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+        javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
+        libraryRef="postgresql-library" />
 
-  <dataSource id="JakartaEECafeDB"
-		jdbcDriverRef="postgresql-driver" jndiName="jdbc/JakartaEECafeDB"
-		transactional="true" type="javax.sql.ConnectionPoolDataSource">
-    <properties databaseName="postgres"
-			password="${env.POSTGRES_PASSWORD}" portNumber="5432"
-			serverName="${env.POSTGRES_SERVER}" user="${env.POSTGRES_USER}" />
-  </dataSource>
-
-  <jdbcDriver id="postgresql-driver"
-		javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
-		javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
-		libraryRef="postgresql-library" />
-
-  <library id="postgresql-library">
-    <fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
-			includes="postgresql.jar" />
-  </library>
+    <library id="postgresql-library">
+        <fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
+            includes="postgresql.jar" />
+    </library>
 </server>
