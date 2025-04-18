@@ -15,5 +15,4 @@ Factors demostrated include:
 The demos use Jakarta EE 10, Open Liberty, PostgreSQL, Azure Kubernetes Service (AKS), and GitHub Actions.
 
 ## To Do
-* Add optional local verification step.
 * Add CRIU?
