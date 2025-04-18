@@ -80,7 +80,7 @@ You will now need to create a Kubernetes cluster.
    docker build -t <your Docker Hub account>/jakartaee-cafe:v1 .
    ```
 
-* Test the Docker image locally:
+* Test the Docker image locally using the following command. Once the application starts, it is available at [http://localhost:9080/jakartaee-cafe](http://localhost:9080/jakartaee-cafe). To exit, simply press Control-C.
    ```
    docker run -it --rm -p 9080:9080 -p 9443:9443 -e POSTGRES_SERVER="jakartaee-cafe-db-<your suffix>.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v1
    ```
