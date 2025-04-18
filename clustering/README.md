@@ -80,6 +80,11 @@ You will now need to create a Kubernetes cluster.
    docker build -t <your Docker Hub account>/jakartaee-cafe:v1 .
    ```
 
+* Test the Docker image locally:
+   ```
+   docker run -it --rm -p 9080:9080 -p 9443:9443 -e POSTGRES_SERVER="jakartaee-cafe-db-reza.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v1
+   ```
+
 * Push the Docker image to Docker Hub:
    ```
    docker push <your Docker Hub account>/jakartaee-cafe:v1
