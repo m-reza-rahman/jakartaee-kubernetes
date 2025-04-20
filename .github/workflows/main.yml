@@ -22,12 +22,13 @@ jobs:
       - name: Delete Jakarta EE Cafe Deployment
         run: kubectl delete -f devops/jakartaee-cafe.yml
         continue-on-error: true
- 
-      - name: Set up Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '1.8'
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+ 
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
