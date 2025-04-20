@@ -27,7 +27,12 @@ spec:
             value: "Secret123!"
         image: <your Docker Hub account>/jakartaee-cafe:v2
         ports:
-        - containerPort: 9080
+          - name: http
+            containerPort: 9080
+            protocol: TCP
+          - name: https
+            containerPort: 9443
+            protocol: TCP        
         readinessProbe:
           httpGet:
             path: /health/ready
@@ -52,7 +57,13 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 9080  
+    - name: http
+      port: 80
+      targetPort: 9080
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: 9443
+      protocol: TCP      
   selector:
     app: jakartaee-cafe
