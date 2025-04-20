@@ -2,13 +2,11 @@ package cafe.model.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 
-@XmlRootElement
 @Entity
 @NamedQuery(name = "findAllCoffees", query = "SELECT o FROM Coffee o")
 public class Coffee implements Serializable {
@@ -18,10 +16,11 @@ public class Coffee implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	protected String name;
-	protected Double price;
+	private String name;
+	private Double price;
 
 	public Coffee() {
+		// Nothing to do.
 	}
 
 	public Coffee(String name, Double price) {

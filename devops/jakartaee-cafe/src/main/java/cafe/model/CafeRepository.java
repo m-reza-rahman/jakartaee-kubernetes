@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import cafe.model.entity.Coffee;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Stateless
 public class CafeRepository {
@@ -20,7 +19,7 @@ public class CafeRepository {
 	private EntityManager entityManager;
 
 	public List<Coffee> getAllCoffees() {
-		logger.log(Level.INFO, "Finding all coffees. ");
+		logger.log(Level.INFO, "Finding all coffees.");
 
 		return this.entityManager.createNamedQuery("findAllCoffees", Coffee.class).getResultList();
 	}
