@@ -11,7 +11,7 @@
         <feature>persistence-3.1</feature>
         -->
         <feature>jakartaee-10.0</feature>
-	    <feature>sessionDatabase-1.0</feature>
+        <feature>sessionDatabase-1.0</feature>
         <feature>adminCenter-1.0</feature>
     </featureManager>
 
