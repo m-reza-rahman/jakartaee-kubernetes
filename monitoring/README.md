@@ -40,19 +40,24 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
    ```
    mvn clean package
    ```
-* Go back to the monitoring/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `websphere-liberty` image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
-* You should note the `server.xml`. We have enabled both MicroProfile Health and Metrics.
+* Go back to the monitoring/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `open-liberty` Java 17 image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* You should note the `server.xml`. We have enabled MicroProfile Health.
 * You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
 * Log in to Docker Hub using the docker login command:
    ```
    docker login
    ```
-* Build a Docker image and push the image to Docker Hub:
+* Build a Docker image:
    ```
    docker build -t <your Docker Hub account>/jakartaee-cafe:v2 .
-   docker push <your Docker Hub account>/jakartaee-cafe:v2
    ```
+
+* Test the Docker image locally using the following command. Once the application starts, it is available at [http://localhost:9080/jakartaee-cafe](http://localhost:9080/jakartaee-cafe). To exit, simply press Control-C.
+   ```
+   docker run -it --rm -p 9080:9080 -p 9443:9443 -e POSTGRES_SERVER="jakartaee-cafe-db-<your suffix>.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v2
+   ```
+
 * Replace the `<your Docker Hub account>` value with your account name and `<your suffix>` value with what you used previously in the `jakartaee-cafe.yml` file, then deploy the application:
    ```
    kubectl create -f jakartaee-cafe.yml
