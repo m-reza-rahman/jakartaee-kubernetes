@@ -28,6 +28,11 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
 * Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.
 * Please delete the ~/.kube directory for good measure.
+* Log into Azure:
+
+   ```
+   az login
+   ```
 * You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
 
    ```
