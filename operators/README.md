@@ -58,17 +58,17 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 
 * Build a Docker image:
    ```
-   docker build -t <your Docker Hub account>/jakartaee-cafe:v1 .
+   docker build -t <your Docker Hub account>/jakartaee-cafe:v3 .
    ```
 
 * Test the Docker image locally using the following command. Once the application starts, it is available at [http://localhost:9080/jakartaee-cafe](http://localhost:9080/jakartaee-cafe). To exit, simply press Control-C.
    ```
-   docker run -it --rm -p 9080:9080 -e POSTGRES_SERVER="jakartaee-cafe-db-<your suffix>.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v1
+   docker run -it --rm -p 9080:9080 -e POSTGRES_SERVER="jakartaee-cafe-db-<your suffix>.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v3
    ```
 
 * Push the Docker image to Docker Hub:
    ```
-   docker push <your Docker Hub account>/jakartaee-cafe:v1
+   docker push <your Docker Hub account>/jakartaee-cafe:v3
    ```
 
 * Replace the `<your Docker Hub account>` value with your account name and `<your suffix>` value with what you used previously in the `jakartaee-cafe.yml` file, then deploy the application:
