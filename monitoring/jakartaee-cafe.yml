@@ -22,7 +22,7 @@ spec:
           - name: POSTGRES_SERVER
             value: "jakartaee-cafe-db-<your suffix>.postgres.database.azure.com"
           - name: POSTGRES_USER
-            value: "postgres@jakartaee-cafe-db-<your suffix>"
+            value: "postgres"
           - name: POSTGRES_PASSWORD
             value: "Secret123!"
         image: <your Docker Hub account>/jakartaee-cafe:v2
