@@ -63,6 +63,11 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
    docker run -it --rm -p 9080:9080 -p 9443:9443 -e POSTGRES_SERVER="jakartaee-cafe-db-<your suffix>.postgres.database.azure.com" -e POSTGRES_USER="postgres" -e POSTGRES_PASSWORD="Secret123!" <your Docker Hub account>/jakartaee-cafe:v2
    ```
 
+* Push the Docker image to Docker Hub:
+   ```
+   docker push <your Docker Hub account>/jakartaee-cafe:v2
+   ```
+
 * Replace the `<your Docker Hub account>` value with your account name and `<your suffix>` value with what you used previously in the `jakartaee-cafe.yml` file, then deploy the application:
    ```
    kubectl create -f jakartaee-cafe.yml
