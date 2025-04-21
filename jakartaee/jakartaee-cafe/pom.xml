@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>jakartaee-cafe</artifactId>
 	<groupId>jakartaee-cafe</groupId>
@@ -10,13 +10,13 @@
 	<name>${project.artifactId}</name>
 	<description>
 	    This is the basic Jakarta EE application used throughout the Kubernetes demos.
-        It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, 
-        Faces, Validation).
-    </description>
+            It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence,
+            Faces, Validation).
+        </description>
 	<properties>
 	    <maven.compiler.release>17</maven.compiler.release>
-		<jakartaee.api.version>10.0.0</jakartaee.api.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <jakartaee.api.version>10.0.0</jakartaee.api.version>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -30,41 +30,41 @@
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.0</version>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <version>3.14.0</version>
 			</plugin>
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.4.0</version>
+			    <artifactId>maven-war-plugin</artifactId>
+			    <version>3.4.0</version>
 			</plugin>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.8.1</version>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>org.postgresql</groupId>
-                            <artifactId>postgresql</artifactId>
-                            <version>42.7.5</version>
-                            <overWrite>true</overWrite>
-                            <outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources</outputDirectory>
-                            <destFileName>postgresql.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-            </plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-dependency-plugin</artifactId>
+                            <version>3.8.1</version>
+                            <executions>
+                                <execution>
+                                    <id>copy</id>
+                                    <phase>prepare-package</phase>
+                                    <goals>
+                                        <goal>copy</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <artifactItems>
+                                    <artifactItem>
+                                        <groupId>org.postgresql</groupId>
+                                        <artifactId>postgresql</artifactId>
+                                        <version>42.7.5</version>
+                                        <overWrite>true</overWrite>
+                                        <outputDirectory>${project.build.directory}/liberty/wlp/usr/shared/resources</outputDirectory>
+                                        <destFileName>postgresql.jar</destFileName>
+                                    </artifactItem>
+                                </artifactItems>
+                            </configuration>
+                        </plugin>
 		</plugins>
 	</build>
 </project>
