@@ -40,10 +40,9 @@
     <!-- To access this server from a remote client add a host attribute to the following 
         element, e.g. host="*" -->
     <httpEndpoint host="*" httpPort="9080" httpsPort="9443"
-        protocolVersion="http/1.1" id="defaultHttpEndpoint" />
+                  protocolVersion="http/1.1" id="defaultHttpEndpoint" />
 
-    <httpSessionDatabase id="SessionDB"
-        dataSourceRef="JakartaEECafeDB" />
+    <httpSessionDatabase id="SessionDB" dataSourceRef="JakartaEECafeDB" />
 
     <httpSession storageRef="SessionDB" />
 
@@ -51,20 +50,20 @@
     <applicationManager autoExpand="true" />
 
     <dataSource id="JakartaEECafeDB"
-        jdbcDriverRef="postgresql-driver" jndiName="jdbc/JakartaEECafeDB"
-        transactional="true" type="javax.sql.ConnectionPoolDataSource">
+                jdbcDriverRef="postgresql-driver" jndiName="jdbc/JakartaEECafeDB"
+                transactional="true" type="javax.sql.ConnectionPoolDataSource">
         <properties databaseName="postgres"
-	    password="${env.POSTGRES_PASSWORD}" portNumber="5432"
-	    serverName="${env.POSTGRES_SERVER}" user="${env.POSTGRES_USER}" />
+	            password="${env.POSTGRES_PASSWORD}" portNumber="5432"
+	            serverName="${env.POSTGRES_SERVER}" user="${env.POSTGRES_USER}" />
     </dataSource>
 
     <jdbcDriver id="postgresql-driver"
-        javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
-        javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
-        libraryRef="postgresql-library" />
+                javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
+                javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
+                libraryRef="postgresql-library" />
 
     <library id="postgresql-library">
         <fileset dir="${shared.resource.dir}" id="PostgreSQLFileset"
-            includes="postgresql.jar" />
+                 includes="postgresql.jar" />
     </library>
 </server>
