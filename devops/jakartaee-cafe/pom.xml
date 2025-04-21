@@ -10,9 +10,9 @@
 	<name>${project.artifactId}</name>
 	<description>
 	    This is the basic Jakarta EE application used throughout the Kubernetes demos.
-        It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, 
-        Faces, Validation).
-    </description>
+            It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, Persistence, 
+            Faces, Validation).
+        </description>
 	<properties>
 	    <maven.compiler.release>17</maven.compiler.release>
 		<jakartaee.api.version>10.0.0</jakartaee.api.version>
