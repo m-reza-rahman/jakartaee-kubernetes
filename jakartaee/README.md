@@ -26,7 +26,7 @@ docker run -it --rm -e POSTGRES_HOST_AUTH_METHOD=trust --name jakartaee-cafe-db 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse IDE.
-* Go to Help -> Eclipse Marketplace. Search for and properly install Liberty Tools.
+* Go to Help -> Eclipse Marketplace. Search for and properly install [Liberty Tools](https://github.com/OpenLiberty/open-liberty-tools).
 * Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * It is now time to run the application. Right click the application -> Run As -> Liberty Start. Wait for the application to finish running.
