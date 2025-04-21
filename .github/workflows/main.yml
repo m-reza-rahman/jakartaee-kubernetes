@@ -7,17 +7,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Login to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
-      - uses: azure/aks-set-context@v3
+      - uses: azure/aks-set-context@v4
         with:
           resource-group: jakartaee-cafe-group-reza
           cluster-name: jakartaee-cafe-cluster-reza
-      - uses: azure/setup-kubectl@v3
+      - uses: azure/setup-kubectl@v4
 
       - name: Delete Jakarta EE Cafe Deployment
         run: kubectl delete -f devops/jakartaee-cafe.yml
@@ -28,9 +28,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
- 
+
       - name: Cache Maven packages
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -38,19 +38,19 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package --file devops/jakartaee-cafe/pom.xml
-        
+
       - name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          
+
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v6
         with:
           context: devops
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/jakartaee-cafe:v4
-                      
+
       - name: Create Azure Cafe Deployment
         run: kubectl create -f devops/jakartaee-cafe.yml
