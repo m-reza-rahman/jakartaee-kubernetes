@@ -10,7 +10,7 @@
 				name="jakarta.persistence.schema-generation.database.action"
 				value="create" />
 			<property name="openjpa.jdbc.SynchronizeMappings"
-				value="buildSchema" />
+				  value="buildSchema" />
 			<property name="eclipselink.logging.level.sql" value="FINE" />
 			<property name="eclipselink.logging.parameters" value="true" />
 			<property name="hibernate.show_sql" value="true" />
