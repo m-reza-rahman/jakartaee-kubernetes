@@ -58,7 +58,7 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
        (...)
    }  
    ```
-* Go to Settings -> Secrets on your GitHub repository.
+* Go to Settings -> Secrets and variables -> Actions on your GitHub repository.
 * Click 'New repository secret'. Specify the secret name to be 'AZURE_CREDENTIALS'. The Value will be the service principal JSON from above.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_USERNAME'. The Value will be your Docker Hub username.
 * Click 'New repository secret'. Specify the secret name to be 'DOCKERHUB_PASSWORD'. The Value will be your Docker Hub password.
