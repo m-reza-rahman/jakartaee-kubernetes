@@ -66,7 +66,7 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 ## Run GitHub Actions Workflow
 * Make sure to update the [devops/jakartaee-cafe.yml](jakartaee-cafe.yml) file to replace occurrences of `rezarahman` with `<Your Docker Hub ID>` and occurrences of `reza` with `<your suffix>`  on GitHub.
 * Similarly, make sure to update the [.github/workflows/main.yml](../.github/workflows/main.yml) file to replace occurrences of `reza` with `<your suffix>`  on GitHub.
-* Go to Actions -> Workflows -> All workflows -> Main Build -> Run workflow -> Run workflow.
+* Go to Actions -> All workflows -> Main Build -> Run workflow -> Run workflow.
 * When the job finishes running, the application will be deployed to Kubernetes.
 * Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/jakartaee-cafe`:
 
