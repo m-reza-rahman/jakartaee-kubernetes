@@ -4,9 +4,9 @@ This demo will show how to do continous integration (CI)/continous delivery (CD)
 
 ## Prerequisites
 
-- You will need a GitHub account.
-- You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
-- You need to have a [Docker Hub](https://hub.docker.com) account.
+* You will need a GitHub account.
+* You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
+* You need to have a [Docker Hub](https://hub.docker.com) account.
 
 ## Start Managed PostgreSQL on Azure
 We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
