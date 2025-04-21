@@ -3,7 +3,7 @@ This is the basic Jakarta EE 10 application used throughout the Kubernetes demos
 Persistence, Faces, Bean Validation).
 
 We use Eclipse IDE but you can use any Maven capable IDE/editor such as IntelliJ or Visual Studio Code. We use Open Liberty but you should be able to use any
-Jakarta EE 10 compatiple application server such as WebSphere Liberty, WildFly, JBoss EAP, GlasFish, or Payara. We use PostgreSQL but you can use any relational 
+Jakarta EE 10 compatiple application server such as WebSphere Liberty, WildFly, JBoss EAP, GlassFish, or Payara. We use PostgreSQL but you can use any relational 
 database such as MySQL, SQL Server, or Oracle DB.
 
 ## Setup
