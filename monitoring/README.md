@@ -113,9 +113,9 @@ The next step is to get OpenTelemetry set up on the Kubernetes cluster so you ca
    ```
 
 ## Deleting the Resources
-* Delete the Prometheus/Grafana deployment:
+* Delete the OpenTelemetry Collector deployment:
    ```
-   kubectl delete -f jakartaee-cafe-dashboard.yml
+   kubectl delete -f otel-collector.yml.yml
    ```
 
 * Delete the Jakartaee EE deployment:
