@@ -68,7 +68,7 @@ The next step is to get OpenTelemetry set up on the Kubernetes cluster so you ca
    ```
 * Go back to the monitoring/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `open-liberty` Java 17 image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
 * You should note the `server.xml`. We have enabled MicroProfile Health and Telemetry.
-* You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
+* You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints. We have also added the configuration needed for the OpenTelemetry Collector.
 * Log in to Docker Hub using the docker login command:
    ```
    docker login
