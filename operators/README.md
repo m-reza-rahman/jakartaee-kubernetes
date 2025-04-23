@@ -107,8 +107,11 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
    ```
    kubectl delete -k overlays/watch-all-namespaces
    ```
-
 * Delete the cert-manager Operator:
    ```
    kubectl delete -f cert-manager.yaml
+   ```
+* Delete the Operator namespace:
+   ```
+   kubectl delete namespace open-liberty
    ```
