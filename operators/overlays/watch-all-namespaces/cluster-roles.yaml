@@ -3,40 +3,14 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/instance: open-liberty-operator
-    app.kubernetes.io/managed-by: olm
     app.kubernetes.io/name: open-liberty-operator
   name: olo-leader-election-cluster-role
 rules:
 - apiGroups:
   - ""
-  resources:
-  - configmaps
-  verbs:
-  - get
-  - list
-  - watch
-  - create
-  - update
-  - patch
-  - delete
-- apiGroups:
-  - ""
-  resources:
-  - configmaps/status
-  verbs:
-  - get
-  - update
-  - patch
-- apiGroups:
-  - ""
-  resources:
-  - events
-  verbs:
-  - create
-  - patch
-- apiGroups:
   - coordination.k8s.io
   resources:
+  - configmaps
   - leases
   verbs:
   - get
@@ -46,14 +20,19 @@ rules:
   - update
   - patch
   - delete
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  creationTimestamp: null
   labels:
     app.kubernetes.io/instance: open-liberty-operator
-    app.kubernetes.io/managed-by: olm
     app.kubernetes.io/name: open-liberty-operator
   name: olo-manager-cluster-role
 rules:
@@ -63,7 +42,12 @@ rules:
   - deployments
   - statefulsets
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - apps
   resources:
@@ -78,7 +62,13 @@ rules:
   - openlibertyapplications/finalizers
   - openlibertyapplications/status
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - apps.openliberty.io
   resources:
@@ -86,7 +76,13 @@ rules:
   - openlibertydumps/finalizers
   - openlibertydumps/status
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - apps.openliberty.io
   resources:
@@ -94,13 +90,47 @@ rules:
   - openlibertytraces/finalizers
   - openlibertytraces/status
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - autoscaling
   resources:
   - horizontalpodautoscalers
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - cert-manager.io
+  resources:
+  - certificates
+  - issuers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - ""
   resources:
@@ -110,14 +140,25 @@ rules:
   - serviceaccounts
   - services
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - ""
   resources:
   - pods
   - pods/exec
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - image.openshift.io
   resources:
@@ -132,33 +173,74 @@ rules:
   resources:
   - servicemonitors
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - networking.k8s.io
   resources:
   - ingresses
+  - networkpolicies
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - rolebindings
+  - roles
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - route.openshift.io
   resources:
   - routes
   - routes/custom-host
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - restricted
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
 - apiGroups:
   - serving.knative.dev
   resources:
   - services
   verbs:
-  - '*'
+  - create
+  - delete
+  - get
+  - list
+  - update
+  - watch
 - apiGroups:
   - ""
   resources:
   - namespaces
   verbs:
-  - list
   - get
+  - list
   - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +248,6 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/instance: open-liberty-operator
-    app.kubernetes.io/managed-by: olm
     app.kubernetes.io/name: open-liberty-operator
   name: olo-leader-election-cluster-rolebinding
 roleRef:
@@ -176,14 +257,13 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: olo-controller-manager
-  namespace: default
+  namespace: open-liberty
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/instance: open-liberty-operator
-    app.kubernetes.io/managed-by: olm
     app.kubernetes.io/name: open-liberty-operator
   name: olo-manager-cluster-rolebinding
 roleRef:
@@ -193,4 +273,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: olo-controller-manager
-  namespace: default
+  namespace: open-liberty
