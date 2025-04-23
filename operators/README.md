@@ -41,11 +41,11 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 
 ## Install the Operator
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
-* Create a namespace for the Operator.
+* Create a namespace for the Operator:
    ```
    kubectl create namespace open-liberty
    ```
-* Install cert-manager Operator
+* Install the cert-manager Operator:
    ```
    kubectl apply -f cert-manager.yaml
    ```  
