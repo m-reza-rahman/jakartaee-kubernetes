@@ -25,6 +25,14 @@ spec:
             value: "postgres"
           - name: POSTGRES_PASSWORD
             value: "Secret123!"
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: "http://otel-collector"
+          - name: OTEL_EXPORTER_OTLP_PROTOCOL
+            value: "http/protobuf"
+          - name: OTEL_SDK_DISABLED
+            value: "false"
+          - name: OTEL_SERVICE_NAME
+            value: "jakartaee-cafe"
         image: <your Docker Hub account>/jakartaee-cafe:v2
         ports:
           - name: http
