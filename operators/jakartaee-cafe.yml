@@ -5,15 +5,21 @@ metadata:
 spec:
   replicas: 2
   applicationImage: <your Docker Hub account>/jakartaee-cafe:v3
+  pullPolicy: Always
   env:
     - name: POSTGRES_SERVER
-      value: "jakartaee-cafe-db-<your suffix>.postgres.database.azure.com"        
+      value: "jakartaee-cafe-db-<your suffix>.postgres.database.azure.com"
     - name: POSTGRES_USER
       value: "postgres"
     - name: POSTGRES_PASSWORD
       value: "Secret123!"
+  manageTLS: false
   service:
     type: LoadBalancer
     ports:
-      - port: 80
+      - name: http
+        port: 80
         targetPort: 9080
+      - name: https
+        port: 443
+        targetPort: 9443        
