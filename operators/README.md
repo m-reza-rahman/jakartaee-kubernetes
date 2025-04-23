@@ -44,7 +44,7 @@ You will now set up Azure Log Analytics and App Insights.
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Hit Create a resource -> IT & Management Tools -> Log Analytics Workspace. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
-* Hit Create a resource -> Monitoring & Diagnostics -> Log Analytics Workspace. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
+* Hit Create a resource -> Monitoring & Diagnostics -> Application Insights. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-insights-`<your suffix>` (the suffix could be your first name such as "reza"). Select the Log Analytics Workspace to be jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
 
 ## Install the Operator
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
