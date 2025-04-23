@@ -99,15 +99,14 @@ You will now set up Azure Log Analytics and App Insights.
    kubectl scale deployment jakartaee-cafe --replicas=3
    ```
 
-## Deploy Prometheus/Grafana Dashboard to Kubernetes
-The next step is to get Prometheus/Grafana up and running on the Kubernetes cluster so you can view a dashboard with the metrics from the application.
+## Set up OpenTelemetry
+The next step is to get OpenTelemetry set up on the Kubernetes cluster so you can view logs, metrics and traces in Log Analytics/App Insights.
 
-* You must first build the custom Prometheus image and push the image to Docker Hub by issuing the following commands. You should explore the `prometheus.yml` file referenced in the Docker build. It is configured to collect the MicroProfile Metrics data from the Open Liberty deployments.
+* You must first build the custom OpenTelemetry Collector image and push the image to Docker Hub by issuing the following commands. You should explore the `otel-collector-config.yml` file referenced in the Docker build. It is configured to collect data from the Open Liberty deployments and send it to Log Analytics/App Insights.
    ```
-   docker build -t <your Docker Hub account>/prometheus:v1 -f Dockerfile-prometheus .
-   docker push <your Docker Hub account>/prometheus:v1
+   docker build -t <your Docker Hub account>/otel-collector:v1 -f Dockerfile-otel-collector .
+   docker push <your Docker Hub account>/otel-collector:v1
    ```
-
 * You must then build the custom Granafa image and push the image to Docker Hub by issuing the following commands. The Grafana image is configured with Prometheus as a data source as well as an Open Liberty dashboard that works with MicroProfile Metrics.
    ```
    docker build -t <your Docker Hub account>/grafana:v1 -f Dockerfile-grafana .
