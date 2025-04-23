@@ -62,14 +62,13 @@ The next step is to get OpenTelemetry set up on the Kubernetes cluster so you ca
    ```
 
 ## Deploy the Jakarta EE Application on Kubernetes
-* Browse to where you have this repository code in your file system. Go into the monitoring/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
+* Open a terminal. Browse to where you have this repository code in your file system. Go into the monitoring/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
    mvn clean package
    ```
 * Go back to the monitoring/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `open-liberty` Java 17 image, adds the `jakartaee-cafe.war` file to the `dropins` directory, copies the PostgreSqQL driver into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
-* You should note the `server.xml`. We have enabled MicroProfile Health.
+* You should note the `server.xml`. We have enabled MicroProfile Health and Telemetry.
 * You should note the `jakartaee-cafe.yml`. We have added liveness and readiness probes that utilize the MicroProfile Health endpoints.
-* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the monitoring/ directory.
 * Log in to Docker Hub using the docker login command:
    ```
    docker login
