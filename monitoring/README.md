@@ -48,6 +48,19 @@ You will now set up Azure Log Analytics and App Insights.
 * Hit Create a resource -> Monitoring & Diagnostics -> Application Insights. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-insights-`<your suffix>` (the suffix could be your first name such as "reza"). Select the Log Analytics Workspace to be jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-insights-`<your suffix>`. Note down the connection string in the overview panel.
 
+## Set up OpenTelemetry
+The next step is to get OpenTelemetry set up on the Kubernetes cluster so you can view logs, metrics and traces in Log Analytics/App Insights.
+
+* You must first build the custom OpenTelemetry Collector image and push the image to Docker Hub by issuing the following commands. You should explore the `otel-collector-config.yml` file referenced in the Docker build. It is configured to collect data from the Open Liberty deployments and send it to Log Analytics/App Insights.
+   ```
+   docker build -t <your Docker Hub account>/otel-collector:v1 -f Dockerfile-otel-collector .
+   docker push <your Docker Hub account>/otel-collector:v1
+   ```
+* You need to deploy the OpenTelemetry Collector by issuing the following command. Please replace the `<your Docker Hub account>` value with your account name in the `otel-collector.yml` file, as well the `<your App Insights connection string>` value with the connection string you noted down earlier, before issuing the command.
+   ```
+   kubectl apply -f otel-collector.yml
+   ```
+
 ## Deploy the Jakarta EE Application on Kubernetes
 * Browse to where you have this repository code in your file system. Go into the monitoring/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
@@ -99,35 +112,6 @@ You will now set up Azure Log Analytics and App Insights.
    ```
    kubectl scale deployment jakartaee-cafe --replicas=3
    ```
-
-## Set up OpenTelemetry
-The next step is to get OpenTelemetry set up on the Kubernetes cluster so you can view logs, metrics and traces in Log Analytics/App Insights.
-
-* You must first build the custom OpenTelemetry Collector image and push the image to Docker Hub by issuing the following commands. You should explore the `otel-collector-config.yml` file referenced in the Docker build. It is configured to collect data from the Open Liberty deployments and send it to Log Analytics/App Insights.
-   ```
-   docker build -t <your Docker Hub account>/otel-collector:v1 -f Dockerfile-otel-collector .
-   docker push <your Docker Hub account>/otel-collector:v1
-   ```
-* You must then build the custom Granafa image and push the image to Docker Hub by issuing the following commands. The Grafana image is configured with Prometheus as a data source as well as an Open Liberty dashboard that works with MicroProfile Metrics.
-   ```
-   docker build -t <your Docker Hub account>/grafana:v1 -f Dockerfile-grafana .
-   docker push <your Docker Hub account>/grafana:v1
-   ```   
-* You need to deploy Prometheus and Grafana by issuing the following command. Please replace the `<your Docker Hub account>` value with your account name in the `jakartaee-cafe-dashboard.yml` file before issuing the command.
-   ```
-   kubectl apply -f jakartaee-cafe-dashboard.yml
-   ```
-* Get the External IP address of the Grafana service. The Grafana UI, including the provisioned dashboard will be accessible at `http://<External IP Address>:3000`:
-   ```
-   kubectl get service grafana --watch
-   ```
-  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-
-* You can also explore the Prometheus UI. Get the External IP address of the Prometheus service to do this. The Prometheus UI will be accessible at `http://<External IP Address>:9090`:
-   ```
-   kubectl get service prometheus --watch
-   ```
-  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
 
 ## Deleting the Resources
 * Delete the Prometheus/Grafana deployment:
