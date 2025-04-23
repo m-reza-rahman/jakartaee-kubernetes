@@ -39,13 +39,24 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 
+## Install the Operator
+* Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
+* Create a namespace for the Operator:
+   ```
+   kubectl create namespace open-liberty
+   ```
+* Install the cert-manager Operator:
+   ```
+   kubectl apply -f cert-manager.yaml
+   ```  
+* Install the Liberty Operator:
+   ```
+   kubectl apply --server-side -k overlays/watch-all-namespaces
+   ```
+
 ## Deploy the Jakarta EE Application on Kubernetes
 
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the operators/ directory.
-* Install the operator by running the following command:
-   ```
-   kubectl apply -k overlays/watch-all-namespaces
-   ```
 * Go into the operators/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
    mvn clean package
@@ -95,4 +106,12 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 * Delete the Liberty Operator:
    ```
    kubectl delete -k overlays/watch-all-namespaces
+   ```
+* Delete the cert-manager Operator:
+   ```
+   kubectl delete -f cert-manager.yaml
+   ```
+* Delete the Operator namespace:
+   ```
+   kubectl delete namespace open-liberty
    ```
