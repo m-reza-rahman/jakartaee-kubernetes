@@ -44,8 +44,7 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 You will now set up Azure App Insights.
 
 * Go to the [Azure portal](http://portal.azure.com).
-* Hit Create a resource -> IT & Management Tools -> Log Analytics Workspace. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
-* Hit Create a resource -> Monitoring & Diagnostics -> Application Insights. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-insights-`<your suffix>` (the suffix could be your first name such as "reza"). Select the Log Analytics Workspace to be jakartaee-cafe-logs-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
+* Hit Create a resource -> Monitoring & Diagnostics -> Application Insights. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-insights-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-insights-`<your suffix>`. Note down the connection string in the overview panel.
 
 ## Set up OpenTelemetry
