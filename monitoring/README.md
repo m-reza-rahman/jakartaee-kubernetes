@@ -40,7 +40,7 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory. 
 
-## Set up App Insights
+## Set up Monitoring Tool
 You will now set up Azure App Insights.
 
 * Go to the [Azure portal](http://portal.azure.com).
