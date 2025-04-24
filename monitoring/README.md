@@ -47,8 +47,8 @@ You will now set up Azure App Insights.
 * Hit Create a resource -> Monitoring & Diagnostics -> Application Insights. Select the resource group to be jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the instance name as jakartaee-cafe-insights-`<your suffix>` (the suffix could be your first name such as "reza"). Hit 'Review + create'. Hit 'Create'.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-insights-`<your suffix>`. Note down the connection string in the overview panel.
 
-## Set up OpenTelemetry
-The next step is to get OpenTelemetry set up on the Kubernetes cluster so you can view logs, metrics and traces in Log Analytics/App Insights.
+## Set up OpenTelemetry Collector
+The next step is to get OpenTelemetry Collector set up on the Kubernetes cluster so you can view logs, metrics and traces in App Insights.
 
 * You must first build the custom OpenTelemetry Collector image and push the image to Docker Hub by issuing the following commands. You should explore the `otel-collector-config.yml` file referenced in the Docker build. It is configured to collect data from the Open Liberty deployments and send it to Log Analytics/App Insights.
    ```
