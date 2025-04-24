@@ -112,6 +112,15 @@ The next step is to get OpenTelemetry set up on the Kubernetes cluster so you ca
    kubectl scale deployment jakartaee-cafe --replicas=3
    ```
 
+## Monitoring the Application
+In the portal, go to 'All resources'. Find and click on jakartaee-cafe-insights-`<your suffix>`. You can navigate to:
+
+* Investigate > Application map - shows the application components and their dependencies.
+* Investigate > Failures - shows the failures and exceptions in the application.
+* Investigate > Performance - shows the performance of the application.
+* Monitoring > Metrics - shows the metrics of the application including Kubernetes, Open Liberty, and JVM metrics.
+* Monitoring > Logs - shows the logs and traces of the application.
+
 ## Deleting the Resources
 * Delete the Jakartaee EE deployment:
    ```
