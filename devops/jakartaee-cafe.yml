@@ -26,6 +26,7 @@ spec:
           - name: POSTGRES_PASSWORD
             value: "Secret123!"
         image: rezarahman/jakartaee-cafe:v4
+        imagePullPolicy: Always
         ports:
           - name: http
             containerPort: 9080
