@@ -4,7 +4,6 @@ This demo will show how to use Kubernetes Operators to more effectively manage a
 
 ## Prerequisites
 * You will need to have [Maven installed](https://maven.apache.org/install.html).
-* You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform including running Kubernetes locally.
 * You need to have Docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
 
