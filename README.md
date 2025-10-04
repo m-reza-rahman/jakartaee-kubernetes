@@ -7,9 +7,9 @@ The basic Java application used throughout is in the [application](/application)
 
 Factors demostrated include:
 
-* How to make application server administration, clustering, auto-scaling, auto-discovery, and load-balancing work with Kubernetes deployments. The [clustering](/clustering) folder shows how this is done.
+* How to make server administration, clustering, auto-scaling, auto-discovery, and load-balancing work with Kubernetes deployments. The [clustering](/clustering) folder shows how this is done.
 * How to take advantage of self-healing and monitoring capabilities of Kubernetes such as liveness/readiness probes and OpenTelemetry logging/metrics/tracing. The [monitoring](/monitoring) folder shows how this is done.
-* How to use Kubernetes Operators to more effectively manage application server clusters. The [operators](/operators) folder shows how this is done.
+* How to use Kubernetes Operators to more effectively manage server clusters. The [operators](/operators) folder shows how this is done.
 * How your CI/CD pipeline looks like with Jakarta EE and Kubernetes. The [devops](/devops) folder shows how this is done.
 
 The demos use Jakarta EE 10, Open Liberty, PostgreSQL, Azure Kubernetes Service (AKS), and GitHub Actions.
