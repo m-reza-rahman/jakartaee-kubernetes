@@ -62,11 +62,11 @@ You will now need to create a Kubernetes cluster if you have not done so yet.
 
 ## Deploy the Jakarta EE Application on Kubernetes
 
-* Browse to where you have this repository code in your file system. Go into the jakartaee/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
+* Browse to where you have this repository code in your file system. Go into the application/jakartaee-cafe directory. Do a full build of the jakartaee-cafe application via Maven:
    ```
    mvn clean package
    ```
-* You will now need to copy the newly built war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to clustering/.
+* You will now need to copy the newly built war file to where we will build the Docker image next. You will find the war file under application/jakartaee-cafe/target. Copy the war file to clustering/.
 * Go back to the clustering/ directory. You should explore the Dockerfile in this directory used to build the Docker image. It starts from the `open-liberty` Java 17 image, adds the `jakartaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSQL driver into the `shared/resources` directory, and replaces the defaultServer configuration file `server.xml`.
 * You should note the `server.xml`. We have added an admin role to access the adminstrative console with. We have also enabled a database session store across the cluster.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the clustering/ directory.
