@@ -1,4 +1,4 @@
-# Basic Jakarta EE CRUD Application
+# Basic CRUD Application
 This is the basic Jakarta EE 10 application used throughout the Kubernetes demos. It is a simple CRUD application. It uses Maven and Jakarta EE 10 (REST, CDI, 
 Persistence, Faces, Bean Validation).
 
