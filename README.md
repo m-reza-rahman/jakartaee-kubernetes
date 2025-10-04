@@ -3,7 +3,7 @@ This repository shows several key trade-offs to consider while using Kubernetes 
 for [this](abstract.md) talk or [this](lab-abstract.md) lab. The prerequistes for the lab are [here](prerequisites.md). A video for the talk is available 
 on [YouTube](https://www.youtube.com/watch?v=Q2jTk3-1Fdc).
 
-The basic Jakarta EE application used throughout is in the [jakartaee](/jakartaee) folder. 
+The basic Java application used throughout is in the [application](/application) folder. 
 
 Factors demostrated include:
 
