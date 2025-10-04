@@ -1,6 +1,6 @@
-# Jakarta EE Application Server Clustering with Kubernetes
+# Clustering with Kubernetes
 
-This demo will show how to make application server administration, clustering, auto-scaling, auto-discovery, and load-balancing work with Kubernetes deployments.
+This demo will show how to make server administration, clustering, auto-scaling, auto-discovery, and load-balancing work with Kubernetes deployments.
 
 ## Prerequisites
 
