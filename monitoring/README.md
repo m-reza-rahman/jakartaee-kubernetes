@@ -1,4 +1,4 @@
-# Jakarta EE Application Server Monitoring with Kubernetes
+# Monitoring with Kubernetes
 
 This demo will show how to make Kubernetes liveness/readiness probes and monitoring via OpenTelemetry logs/tracing/metrics work with MicroProfile Health and Telemetry. We use Azure App Insights for the demos but you could use Prometheus, Grafana, Jaeger, or any other tool that works with OpenTelemetry.
 
