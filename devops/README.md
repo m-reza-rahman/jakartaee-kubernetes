@@ -1,6 +1,6 @@
 # CI/CD for Jakarta EE Applications with Kubernetes
 
-This demo will show how to do continous integration (CI)/continous delivery (CD) of Jakarta EE applications using Kubernetes. We will use GitHub Actions for our demo but you could easily use Jenkins or any other DevOps tool. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform.
+This demo will show how to do continous integration (CI)/continous delivery (CD) of Jakarta EE applications using Kubernetes. We will use GitHub Actions for our demo but you could easily use Jenkins or any other DevOps tool. We used the Azure Kubernetes Service but you can use any Kubernetes capable platform such as AWS or GCP.
 
 ## Prerequisites
 
