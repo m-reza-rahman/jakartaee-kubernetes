@@ -1,6 +1,6 @@
-# Jakarta EE Application Server Operators with Kubernetes
+# Operators with Kubernetes
 
-This demo will show how to use Kubernetes Operators to more effectively manage application server clusters.
+This demo will show how to use Kubernetes Operators to more effectively manage server clusters.
 
 ## Prerequisites
 * You will need to have [Maven installed](https://maven.apache.org/install.html).
